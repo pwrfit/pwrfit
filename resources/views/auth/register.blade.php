@@ -1,0 +1,95 @@
+<x-guest-layout>
+    <x-auth-card>
+        <x-slot name="logo">
+            <a href="/">
+                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+            </a>
+        </x-slot>
+
+        <!-- Validation Errors -->
+        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+
+        <form method="POST" action="{{ route('register') }}">
+            @csrf
+
+            <!-- Nombre -->
+            <div>
+                <x-label for="nombre" :value="__('Nombre')" />
+
+                <x-input id="nombre" class="block mt-1 w-full" type="text" name="nombre" :value="old('nombre')" required autofocus />
+            </div>
+
+            <!-- Documento -->
+            <div class="mt-4">
+                <x-label for="documento" :value="__('Documento de Identidad')" />
+
+                <x-input id="documento" class="block mt-1 w-full" type="text" name="documento" :value="old('documento')" required />
+            </div>
+
+            <!-- Correo -->
+            <div class="mt-4">
+                <x-label for="correo" :value="__('Correo')" />
+
+                <x-input id="correo" class="block mt-1 w-full" type="email" name="correo" :value="old('correo')" required />
+            </div>
+
+            <!-- Contraseña -->
+            <div class="mt-4">
+                <x-label for="password" :value="__('Contraseña')" />
+
+                <x-input id="password" class="block mt-1 w-full"
+                                type="password"
+                                name="password"
+                                required autocomplete="new-password" />
+            </div>
+
+            <!-- Verificar Contraseña -->
+            <div class="mt-4">
+                <x-label for="password_confirmation" :value="__('Verificar Contraseña')" />
+
+                <x-input id="password_confirmation" class="block mt-1 w-full"
+                                type="password"
+                                name="password_confirmation" required />
+            </div>
+
+            <!-- Boletin -->
+            <div class="block mt-4">
+                <label for="remember_me" class="inline-flex items-center">
+                    <input  id="remember_me"
+                            type="checkbox"
+                            class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                            name="boletin">
+                    <span class="ml-2 text-sm text-gray-600">
+                        {{ __('Deseo recibir correos promocionales') }}
+                    </span>
+                </label>
+            </div>
+
+            <!-- Boletin -->
+            <div class="block mt-4">
+                <label for="terminos" class="inline-flex items-center">
+                    <input  id="terminos"
+                            type="checkbox"
+                            class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                            name="terminos">
+                    <span class="ml-2 text-sm text-gray-600">
+                        {{ __('Acepto los') }}
+                        <span class="text-sm text-red-600" style="cursor: pointer">
+                            {{ __('términos y condiciones') }}
+                        </span>
+                    </span>
+                </label>
+            </div>
+
+            <div class="flex items-center justify-end mt-4">
+                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+                    {{ __('¿Ya tienes una cuenta?') }}
+                </a>
+
+                <x-button class="ml-4" style="background-color:#F23849;">
+                    {{ __('Registrarse') }}
+                </x-button>
+            </div>
+        </form>
+    </x-auth-card>
+</x-guest-layout>
