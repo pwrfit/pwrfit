@@ -1,3 +1,9 @@
+@include('auth.styles')
+<div class="back-to-home rounded d-none d-sm-block">
+    <a href="/" class="btn btn-icon btn-danger" style="height: 35px;">
+        <i class="fa-regular fa-house"></i></a>
+    </a>
+ </div>
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
