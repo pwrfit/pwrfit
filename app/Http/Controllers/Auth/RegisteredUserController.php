@@ -35,8 +35,8 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'nombre' => ['required', 'string', 'max:255'],
-            'documento' => ['required', 'integer', 'min:8'],
-            'correo' => ['required', 'string', 'email', 'max:255', 'unique:usuarios'],
+            'documento' => ['required', 'integer', 'min:8', 'unique:usuarios'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:usuarios'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'terminos' => ['accepted'],
         ]);
@@ -46,7 +46,7 @@ class RegisteredUserController extends Controller
                 'rol' => '3',
                 'nombre' => $request->nombre,
                 'documento' => $request->documento,
-                'correo' => $request->correo,
+                'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'boletin' => 'SI',
                 'membresia' => '1',
@@ -56,7 +56,7 @@ class RegisteredUserController extends Controller
                 'rol' => '3',
                 'nombre' => $request->nombre,
                 'documento' => $request->documento,
-                'correo' => $request->correo,
+                'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'membresia' => '1',
             ]);

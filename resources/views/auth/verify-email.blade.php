@@ -7,12 +7,12 @@
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">
-            {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
+            {{ __('Gracias por registrarte! Antes de empezar, por favor verifica tu correo') }}
         </div>
 
         @if (session('status') == 'verification-link-sent')
             <div class="mb-4 font-medium text-sm text-green-600">
-                {{ __('A new verification link has been sent to the email address you provided during registration.') }}
+                {{ __('Se ha enviado un nuevo correo de verificación.') }}
             </div>
         @endif
 
@@ -21,8 +21,8 @@
                 @csrf
 
                 <div>
-                    <x-button>
-                        {{ __('Resend Verification Email') }}
+                    <x-button style="background-color: #F23849">
+                        {{ __('Reenviar email de verificación') }}
                     </x-button>
                 </div>
             </form>
@@ -30,8 +30,8 @@
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
 
-                <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900">
-                    {{ __('Log Out') }}
+                <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900" >
+                    {{ __('Cerrar sesión') }}
                 </button>
             </form>
         </div>
