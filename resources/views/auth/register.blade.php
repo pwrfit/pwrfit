@@ -35,6 +35,17 @@
                     required />
             </div>
 
+            <div class="mt-4">
+                <x-label :value="__('Membresia')" />
+
+                <select class="block mt-1 w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="membresia">
+                    <option selected disabled>Elige una membresia</option>
+                    <option value="1">Casual - $20.900/mes</option>
+                    <option value="2">Comprometido - $199.900/año</option>
+                    <option value="3">Aficionado - $5.900/mes</option>
+                  </select>
+            </div>
+
             <!-- Correo -->
             <div class="mt-4">
                 <x-label for="email" :value="__('Correo')" />

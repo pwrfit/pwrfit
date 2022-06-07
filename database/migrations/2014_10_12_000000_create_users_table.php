@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('rol');
             $table->string('nombre');
             $table->string('documento')->unique();
-            $table->string('correo')->unique();
+            $table->string('email')->unique();
             $table->string('password');
             $table->string('direccion')->nullable();
             $table->string('celular')->nullable();
