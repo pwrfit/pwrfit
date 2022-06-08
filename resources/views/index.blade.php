@@ -54,28 +54,13 @@
                 </div>
             </div>
         </div>
+        @include('layouts.shape')
     </section>
-    <div class="position-relative">
-        <div class="shape overflow-hidden text-white position-absolute">
-            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
-                style="width: 100%;" height="250" preserveAspectRatio="none" viewBox="0 0 1440 250">
-                <g mask="url(&quot;#SvgjsMask1006&quot;)" fill="none">
-                    <path id="pathfill" d="M 0,246 C 288,210 1152,102 1440,66L1440 250L0 250z"
-                        style="fill: rgba(242, 56, 73, 1);"></path>
-                </g>
-                <defs>
-                    <mask id="SvgjsMask1006">
-                        <rect width="1440" height="250" fill="#ffffff"></rect>
-                    </mask>
-                </defs>
-            </svg>
-        </div>
-    </div>
-    <section class="section" id="servicios">
+    <section class="bg-home4 overflow-hidden" id="servicios" style="background-image: url('https://raw.githubusercontent.com/pwrfit/svg/3095724b4b7736ee718d7cb68bf2e39b4df3d4a9/blob.svg'); background-size: 100%; background-repeat:no-repeat;">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
-                    <div class="text-center mb-5">
+                    <div class="text-center mb-5" style="">
                         <h3>Bienvenido a <span style="color: #ffb300; font-family: 'Poppins';">PWR FIT</span></h3>
                         <p class="text-muted">No seas una máquina, sé la máquina.</p>
                     </div>
@@ -153,7 +138,7 @@
     </section>
     @auth
         @else
-        <section class="section" id="precios">
+        <section class="bg-home4 overflow-hidden" id="precios" style="background-image: url('https://raw.githubusercontent.com/pwrfit/svg/3249c739df3df6c6caca256534de58c7fea83296/stars.svg');  background-repeat:no-repeat;">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
