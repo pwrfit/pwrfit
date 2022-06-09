@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('usuarios', function (Blueprint $table) {
             $table->id();
-            $table->integer('rol');
+            $table->unsignedBigInteger('rol');
             $table->string('nombre');
             $table->string('documento')->unique();
             $table->string('email')->unique();
@@ -23,11 +23,14 @@ return new class extends Migration
             $table->string('direccion')->nullable();
             $table->string('celular')->nullable();
             $table->string('boletin', 2)->nullable();
-            $table->integer('membresia');
+            $table->unsignedBigInteger('membresia');
             $table->string('pago')->nullable();
             $table->date('validohasta')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
+
+            $table->foreign('membresia')->references('id')->on('membresia');
+            $table->foreign('rol')->references('id')->on('roles');
         });
     }
 

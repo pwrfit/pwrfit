@@ -25,12 +25,7 @@ body.bg-home4 {
 }
 .navbar .navbar-nav .nav-item .nav-link:hover,
 .navbar .navbar-nav .nav-item .nav-link:focus,
-.navbar .navbar-nav .nav-item .nav-link.active,
-.nav-sticky .navbar-nav .nav-item .nav-link:hover,
-.nav-sticky .navbar-nav .nav-item .nav-link:active,
-.nav-sticky .navbar-nav .nav-item .nav-link:focus,
-.nav-sticky .navbar-nav .nav-item .nav-link.active,
-.nav-sticky .navbar-nav .nav-item .nav-link.active .dropdown-toggle:after{
+.navbar .navbar-nav .nav-item .nav-link.active{
     color: #F23849;
 }
 
@@ -119,4 +114,13 @@ body.bg-home4 {
 
 .feature-icon{
     background-color: rgba(0, 0, 0, 0.8);
+}
+
+.method .nav-item .nav-link.active {
+    background-color: #F23849;
+}
+
+
+.method .nav-item .nav-link {
+    color: #000;
 }

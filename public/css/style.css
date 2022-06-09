@@ -22,3 +22,46 @@
     color: #f23849 !important;
     box-shadow: 0 3px 5px 0 rgba(216, 219, 227, 0.3);
 }
+.btn {
+    padding: 12px 28px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.5s;
+    border: 1px solid #25272b;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .btn:focus {
+    box-shadow: none;
+  }
+
+  .btn:after {
+    background: rgba(255, 255, 255, 0.25);
+    content: "";
+    height: 155px;
+    left: -75px;
+    position: absolute;
+    top: -50px;
+    transform: rotate(35deg);
+    transition: all 0.9s ease;
+    width: 50px;
+    z-index: 1;
+  }
+
+  .btn:hover:after {
+    left: 110%;
+  }
+  .form-control {
+    border-color: rgba(37, 39, 43, 0.2);
+    box-shadow: rgba(149, 157, 165, 0.08) 0px 8px 24px;
+  }
+
+  .form-control:focus {
+    box-shadow: rgba(149, 157, 165, 0.08) 0px 8px 24px;
+    border-color: #3f8efc;
+  }
+
+  .form-control::placeholder {
+    color: #ced4da;
+  }

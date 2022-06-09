@@ -16,10 +16,10 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+        <script>
+            var assets = "{{ URL::asset('index') }}";
+        </script>
     </head>
-    <script>
-        var assets = "{{ URL::asset('index') }}";
-    </script>
     <body class="bg-home4">
         <div class="font-sans text-gray-900 antialiased">
             {{ $slot }}

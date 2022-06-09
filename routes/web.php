@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,5 +24,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('contact', [ContactController::class, 'create'])->name('contact');
+Route::get('payment', [PaymentController::class, 'create'])->name('payment');
+Route::post('payment', [PaymentController::class, 'store'])->name('payment');
 
 require __DIR__.'/auth.php';

@@ -30,7 +30,7 @@
                     <div class="col-xl-5 col-lg-6">
                         <div>
                             <form method="post" action="http://127.0.0.1:8001/contactstore">
-                                <input type="hidden" name="_token" value="1CVVlhIXGJ1InTy4cYC7QMEiQlvt2z0HRiF0FCIS">                              <p id="error-msg" class="mb-0"></p>
+                                @csrf
                                 <div id="simple-msg"></div>
                                 <div class="row">
                                    <div class="col-12">
