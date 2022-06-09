@@ -1,4 +1,4 @@
-/* orange.css */
+/* success.css */
 
 
 /* color */
@@ -24,8 +24,6 @@
     color: #EF4B4B !important;
 }
 
-
-
 /* background-color */
 .bg-primary,
 .btn-primary,
@@ -42,17 +40,16 @@
 .form-check-input:checked,
 .works-description-left::after,
 .works-description-right::after,
+.swiper-button-next, .swiper-button-prev,
 .ribbon,
 .sidebar .sd-title::after,
 .pagination .page-item .page-link:hover,
 .pagination .page-item .page-link.active,
 .pagination .page-item .page-link:focus,
-.swiper-button-next, .swiper-button-prev,
 #back-to-top:hover,
 .sidebar .tagcloud a:hover {
-    background-color: #EF4B4B !important;
+    background-color: #06ba63 !important;
 }
-
 
 /* btn box-shadow */
 .btn-primary:hover,
@@ -71,9 +68,8 @@
 .btn-outline-primary:not(:disabled):not(.disabled):active,
 .btn-outline-primary:not(:disabled):not(.disabled):active:focus,
 .btn-outline-primary .open>.dropdown-toggle.btn-primary {
-    box-shadow: 0px 8px 20px -6px rgba(242, 56, 73, 0.6);
+    box-shadow: 0px 8px 20px -6px rgba(6, 186, 99, 0.6);
 }
-
 
 /* border-color */
 .form-control:focus,
@@ -82,30 +78,29 @@
 .btn-primary,
 .btn-outline-primary,
 .social-list .social-icon:hover {
-    border-color: #EF4B4B !important;
+    border-color: #06ba63 !important;
 }
 
 /* slider */
 .swiper-pagination-bullet {
-    background-color: rgba(242, 56, 73, 0.9);
+    background-color: rgba(6, 186, 99, 0.9);
 }
 
 /* rgba background */
 .timeline-page::after,
 .price-box .price-features i,
 .faq .icon {
-    background-color: rgba(242, 56, 73, 0.15);
+    background-color: rgba(6, 186, 99, 0.15);
 }
 
 /* process box-shadow */
 .works-description-left:hover::after,
 .works-description-right:hover::after {
-    box-shadow: 0px 0px 5px 2px #EF4B4B;
-
+    box-shadow: 0px 0px 5px 2px #06ba63 !important;
 }
 
-/* feature box */
+/* featrue box */
 .feature-icon,
 .bg-home4 {
-    background-color: rgba(242, 56, 73, 0.2);
+    background-color: #b0f2c2;
 }

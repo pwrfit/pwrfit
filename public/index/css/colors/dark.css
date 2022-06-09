@@ -7,10 +7,13 @@ body, .navbar{
 
 
 /* color */
-.feature-icon,
-.social-list .social-icon:hover
+.feature-icon
 {
-    color: rgb(255, 255, 255) !important;
+    color: #EF4B4B !important;
+}
+
+.social-list .social-icon:hover{
+    color:rgba(255, 255, 255, 1);
 }
 
 

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8" />
     <title>PWRFIT | Desafio aceptado</title>
@@ -9,12 +8,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.1.1/css/all.css">
+    <link rel="stylesheet" href="{{ asset('css/fontawesome/css/all.css')}}">
 
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
     <link href="{{ asset('bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('index/css/style.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('index/css/colors/default.css') }}" rel="stylesheet" type="text/css" id="color-opt" />
+    <link href="" rel="stylesheet" type="text/css" id="color-opt" />
 
 </head>
 <script>
@@ -221,7 +220,7 @@
                     <a class="color1" href="javascript: void(0);" onclick="setColor('default')"></a>
                 </li>
                 <li>
-                    <a class="color2" href="javascript: void(0);" onclick="setColor('success')"></a>
+                    <a class="color2" href="javascript: void(0);" onclick="setColor('green')"></a>
                 </li>
                 <li>
                     <a class="color3" href="javascript: void(0);" onclick="setColor('warning')"></a>
