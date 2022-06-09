@@ -5,6 +5,9 @@ body, .navbar{
     color: #FFF;
 }
 
+body.bg-home4 {
+    background-color: #1D1E21;
+}
 
 /* color */
 .feature-icon

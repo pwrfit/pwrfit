@@ -1,4 +1,11 @@
+<title>PWRFIT | Desafio aceptado</title>
 <x-guest-layout>
+    @include('auth.styles')
+    <div class="back-to-home rounded d-none d-sm-block">
+        <a href="/" class="btn btn-icon btn-danger" style="height: 35px;">
+            <i class="fa-regular fa-house"></i></a>
+        </a>
+    </div>
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
@@ -27,10 +34,11 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <x-button>
+                <x-button style="background-color: #F23849;">
                     {{ __('Email Password Reset Link') }}
                 </x-button>
             </div>
         </form>
     </x-auth-card>
+    <script src="{{ asset('index/js/app.js') }}"></script>
 </x-guest-layout>

@@ -1,4 +1,6 @@
+<title>PWRFIT | Desafio aceptado</title>
 <x-guest-layout>
+    @include('auth.styles')
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
@@ -19,7 +21,7 @@
             <div>
                 <x-label for="email" :value="__('Email')" />
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus />
+                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus readonly/>
             </div>
 
             <!-- Password -->
@@ -39,10 +41,11 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <x-button>
+                <x-button style="background-color:#F23849;">
                     {{ __('Reset Password') }}
                 </x-button>
             </div>
         </form>
     </x-auth-card>
+    <script src="{{ asset('index/js/app.js') }}"></script>
 </x-guest-layout>

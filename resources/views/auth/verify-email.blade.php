@@ -1,4 +1,11 @@
+<title>PWRFIT | Desafio aceptado</title>
 <x-guest-layout>
+    @include('auth.styles')
+    <div class="back-to-home rounded d-none d-sm-block">
+        <a href="/" class="btn btn-icon btn-danger" style="height: 35px;">
+            <i class="fa-regular fa-house"></i></a>
+        </a>
+    </div>
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
@@ -30,10 +37,11 @@
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
 
-                <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900" >
+                <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900">
                     {{ __('Cerrar sesión') }}
                 </button>
             </form>
         </div>
     </x-auth-card>
+    <script src="{{ asset('index/js/app.js') }}"></script>
 </x-guest-layout>

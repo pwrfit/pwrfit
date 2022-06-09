@@ -49,6 +49,10 @@ function setColor(theme) {
 
 }
 
+function setDark2() {
+    document.getElementById("Messy").src = assets + "/images/home/Open Doodles - Messy Light.svg"
+}
+
 function setDark(theme = "dark") {
     document.getElementById("color-opt").href = assets + "/css/colors/" + theme + ".css";
     localStorage.setItem('color', 'dark');
@@ -62,7 +66,7 @@ function setDark(theme = "dark") {
         document.getElementById("pricebox3").style = "box-shadow: rgba(244, 185, 66, 0.4) 0px 8px 24px; background-color: #202124;"
         document.getElementById("pricebox").style = "box-shadow: rgba(73, 198, 229, 0.4) 0px 8px 24px; background-color: #202124;";
     } else {
-        document.getElementById("Messy").src = assets + "/images/home/Open Doodles - Messy Light.svg"
+        setDark2();
     }
 }
 
@@ -90,6 +94,8 @@ if (localStorage.getItem('color') == 'default') {
                             if (localStorage.getItem('color') == 'dark') {
                                 document.getElementById("color-opt").href = assets + "/css/colors/dark.css";
                                 setDark();
+                            }else {
+                                document.getElementById("color-opt").href = assets + "/css/colors/default.css";
                             }
                         }
                     }

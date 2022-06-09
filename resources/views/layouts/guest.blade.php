@@ -12,11 +12,15 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" type="text/css" id="color-opt" href="">
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
-    <body>
+    <script>
+        var assets = "{{ URL::asset('index') }}";
+    </script>
+    <body class="bg-home4">
         <div class="font-sans text-gray-900 antialiased">
             {{ $slot }}
         </div>

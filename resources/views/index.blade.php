@@ -250,7 +250,6 @@
     </div>
 
     <script src="{{ asset('bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('index/js/index.init.js') }}"></script>
     <script src="{{ asset('index/js/app.js') }}"></script>
 </body>
 
