@@ -21,9 +21,9 @@
                         <div class="pt-4 pl-2 pr-2 pb-2 method">
                             <ul role="tablist" class="nav bg-light nav-pills rounded nav-fill mb-3">
                                 <li class="nav-item"> <a data-toggle="pill" href="#credit-card"
-                                        class="nav-link active"><img src="{{ asset('brands/creditcard.svg')}}" alt="creditcard" style="width: 20px"> Credit Card </a>
+                                        class="nav-link active"><img src="{{ asset('brands/creditcard.svg')}}" alt="creditcard" style="width: 20px"> Tarjeta de crédito/débito </a>
                                 </li>
-                                <li class="nav-item"> <a data-toggle="pill" href="#paypal" class="nav-link ">
+                                <li class="nav-item"> <a data-toggle="pill" href="#Nequi" class="nav-link ">
                                         <img src="{{ asset('brands/nequi.svg')}}" alt="Nequi" style="width: 20px"> Nequi </a> </li>
                             </ul>
                         </div>
@@ -39,7 +39,7 @@
                                             <h6>Número en la tarjeta</h6>
                                         </label>
                                         <div class="input-group"> <input type="text" maxlength="19" name="cardNumber"
-                                                placeholder="Valid card number" class="form-control rounded" required>
+                                                 class="form-control rounded" required>
                                             <div class="input-group-append"> <span class="input-group-text text-muted">
                                                     <i class="fab fa-cc-visa mx-1"></i> <i
                                                         class="fab fa-cc-mastercard mx-1"></i> <i
@@ -52,8 +52,8 @@
                                                         <h6>Fecha de expiración</h6>
                                                     </span></label>
                                                 <div class="input-group"> <input type="number" placeholder="MM"
-                                                        name="" class="form-control" required> <input type="number"
-                                                        placeholder="YY" name="" class="form-control" required> </div>
+                                                        name="" max="12" min="01" value="01" class="form-control" required> <input type="number"
+                                                        placeholder="AA" name="" min="22" value="22" max="99" class="form-control" required> </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
@@ -69,10 +69,15 @@
                                 </form>
                             </div>
                         </div>
-                        <div id="paypal" class="tab-pane fade pt-3">
+                        <div id="Nequi" class="tab-pane fade pt-3">
                             <h6 class="pb-2">Escanea el siguiente qr en tu aplicación</h6>
-                            <p> <button type="submit" class="btn btn-primary ">Completar pago</button> </p>
-                            <p class="text-muted"> Nota: </p>
+                            <img src="{{ asset('brands/qr-nequi.png')}}" alt="qr" style="width: 200px" draggable="false">
+                            <form action="{{ route('payment')}}" method="post">
+                                @csrf
+                                <p> <button type="submit" class="btn btn-primary ">Completar pago</button> </p>
+                            </form>
+
+                            {{-- <p class="text-muted"> Nota: </p> --}}
                         </div>
                     </div>
                 </div>

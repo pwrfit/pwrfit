@@ -51,6 +51,7 @@ class RegisteredUserController extends Controller
                 'password' => Hash::make($request->password),
                 'boletin' => 'SI',
                 'membresia' => '1',
+                'pago' => 'SIN COMPLETAR',
             ]);
         }else {
             $user = User::create([
@@ -60,6 +61,7 @@ class RegisteredUserController extends Controller
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'membresia' => '1',
+                'pago' => 'SIN COMPLETAR',
             ]);
         }
 

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Payment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PaymentController extends Controller
 {
@@ -35,7 +37,7 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
-        return "hola";
+
     }
 
     /**
@@ -69,7 +71,8 @@ class PaymentController extends Controller
      */
     public function update(Request $request, Payment $payment)
     {
-        //
+        DB::update('update usuarios set pago = "COMPLETADO" where email = ?', [Auth::user()->email]);
+        return view('dashboard');
     }
 
     /**

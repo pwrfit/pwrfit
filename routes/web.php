@@ -21,10 +21,10 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified', 'pago'])->name('dashboard');
 
 Route::get('contact', [ContactController::class, 'create'])->name('contact');
-Route::get('payment', [PaymentController::class, 'create'])->name('payment');
-Route::post('payment', [PaymentController::class, 'store'])->name('payment');
+Route::get('payment', [PaymentController::class, 'create'])->middleware(['auth','verified','pago'])->name('payment');
+Route::post('payment', [PaymentController::class, 'update'])->name('payment');
 
 require __DIR__.'/auth.php';

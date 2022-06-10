@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CheckPago
 {
@@ -16,6 +17,15 @@ class CheckPago
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+        if (Auth::user()->pago == "COMPLETADO") {
+            return response()->view('dashboard');
+        }else {
+            if (Auth::user()->pago == "SIN COMPLETAR") {
+                return response()->view('payment');
+            }else {
+                return response()->view('index');
+            }
+        }
+
     }
 }
