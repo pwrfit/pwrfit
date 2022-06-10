@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('celular')->nullable();
             $table->string('boletin', 2)->nullable();
             $table->unsignedBigInteger('membresia');
+            $table->unsignedBigInteger('dificultad_seleccionada')->nullable();
             $table->string('pago')->nullable();
             $table->date('validohasta')->nullable();
             $table->timestamp('email_verified_at')->nullable();
@@ -31,6 +32,7 @@ return new class extends Migration
 
             $table->foreign('membresia')->references('id')->on('membresia');
             $table->foreign('rol')->references('id')->on('roles');
+            $table->foreign('dificultad_seleccionada')->references('id')->on('dificultad');
         });
     }
 

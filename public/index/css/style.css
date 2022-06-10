@@ -429,3 +429,7 @@ ul.pattern .color8 {
 .footer-link:hover {
   color: rgba(255, 255, 255, 0.8);
 }
+
+.user {
+    font-family: "Inter", sans-serif;
+}

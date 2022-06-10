@@ -1,3 +1,6 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <nav id="navbar" class="navbar navbar-expand-lg fixed-top sticky">
     <div class="container">
         <a class="navbar-brand" href="/"><img src="{{ asset('logo.png') }}" alt="" width="150px"></a>
@@ -31,7 +34,7 @@
                 @endif
                 @auth
                 <li class="nav-item">
-                            <a class="nav-link" href="{{ route('logoutget')}}"><i class="fa-solid fa-right-from-bracket" style="font-size: 20px"></i></a>
+                    <a class="nav-link" href="{{ route('logoutget')}}">Cerrar sesión</a>
                 </li>
 
                 @endauth

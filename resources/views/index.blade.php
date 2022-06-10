@@ -248,7 +248,6 @@
                     class="fa-light fa-palette"></i></a>
         </div>
     </div>
-
     <script src="{{ asset('bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('index/js/app.js') }}"></script>
 </body>
