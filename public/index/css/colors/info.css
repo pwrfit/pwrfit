@@ -50,7 +50,6 @@
 .pagination .page-item .page-link:focus,
 #back-to-top:hover,
 .sidebar .tagcloud a:hover {
-    color: #000;
     background-color: #49c6e5 !important;
 }
 
@@ -108,4 +107,8 @@
 .feature-icon,
 .bg-home4 {
     background-color: rgba(73, 198, 229, 0.2);
+}
+
+.method .nav-item .nav-link.active {
+    background-color: #49C6E5;
 }

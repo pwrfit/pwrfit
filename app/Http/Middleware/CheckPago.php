@@ -18,12 +18,10 @@ class CheckPago
     public function handle(Request $request, Closure $next)
     {
         if (Auth::user()->pago == "COMPLETADO") {
-            return response()->view('dashboard');
+                return $next($request);
         }else {
             if (Auth::user()->pago == "SIN COMPLETAR") {
-                return response()->view('payment');
-            }else {
-                return response()->view('index');
+                return redirect('payment');
             }
         }
 

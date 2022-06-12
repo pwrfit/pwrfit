@@ -110,3 +110,6 @@
     background-color: rgba(63, 142, 252, 0.5);
 }
 
+.method .nav-item .nav-link.active {
+    background-color: #3F8EFC;
+}

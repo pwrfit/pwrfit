@@ -104,3 +104,7 @@
 .bg-home4 {
     background-color: #b0f2c2;
 }
+
+.method .nav-item .nav-link.active {
+    background-color: #06BA63;
+}

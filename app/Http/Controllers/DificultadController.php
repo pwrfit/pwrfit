@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Payment;
-use App\Models\Membresia;
+use App\Models\Dificultad;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
-class PaymentController extends Controller
+class DificultadController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,12 +24,7 @@ class PaymentController extends Controller
      */
     public function create()
     {
-        if (Auth::user()->pago == "COMPLETADO") {
-            return redirect()->route('dashboard');
-        }
-        $membresia = Auth::user()->membresia;
-        $precio = Membresia::find($membresia);
-        return view('payment', compact('precio'));
+        return view('primerospasos');
     }
 
     /**
@@ -43,16 +35,16 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
-
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Payment  $payment
+     * @param  \App\Models\Dificultad  $dificultad
      * @return \Illuminate\Http\Response
      */
-    public function show(Payment $payment)
+    public function show(Dificultad $dificultad)
     {
         //
     }
@@ -60,10 +52,10 @@ class PaymentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Payment  $payment
+     * @param  \App\Models\Dificultad  $dificultad
      * @return \Illuminate\Http\Response
      */
-    public function edit(Payment $payment)
+    public function edit(Dificultad $dificultad)
     {
         //
     }
@@ -72,22 +64,21 @@ class PaymentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Payment  $payment
+     * @param  \App\Models\Dificultad  $dificultad
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Payment $payment)
+    public function update(Request $request, Dificultad $dificultad)
     {
-        DB::update('update usuarios set pago = "COMPLETADO" where email = ?', [Auth::user()->email]);
-        return view('dashboard');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Payment  $payment
+     * @param  \App\Models\Dificultad  $dificultad
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Payment $payment)
+    public function destroy(Dificultad $dificultad)
     {
         //
     }

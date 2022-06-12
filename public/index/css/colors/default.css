@@ -113,3 +113,7 @@
 .method .nav-item .nav-link.active {
     background-color: #F23849;
 }
+
+.method .nav-item .nav-link.active {
+    background-color: #f7808b;
+}
