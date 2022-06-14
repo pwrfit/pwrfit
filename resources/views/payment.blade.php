@@ -80,7 +80,7 @@
                                         </button>
                                 </form>
                             </div>
-                            <br><p class="text-muted"> Nota: Recuerda que la emisora de tu tarjeta puede cobrarte cuota de manejo por cada transaccion (varía según la emisora)</p>
+                            <br><p class="text-muted"> Nota: Recuerda que la entidad emisora de tu tarjeta puede cobrarte cuota de manejo por cada transaccion (varía según la entidad)</p>
                         </div>
                         <div id="nequi" class="tab-pane fade pt-3">
                             <h6 class="pb-2">Escanea el siguiente qr en tu aplicación</h6>

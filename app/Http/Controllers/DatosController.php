@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Payment;
-use App\Models\Membresia;
+use App\Models\Datos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class PaymentController extends Controller
+class DatosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,12 +26,7 @@ class PaymentController extends Controller
      */
     public function create()
     {
-        if (Auth::user()->pago == "COMPLETADO") {
-            return redirect()->route('dashboard');
-        }
-        $membresia = Auth::user()->membresia;
-        $precio = Membresia::find($membresia);
-        return view('payment', compact('precio'));
+
     }
 
     /**
@@ -43,16 +37,38 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->edad) {
+            Datos::create([
+                'documento' => Auth::user()->documento,
+                'edad' => $request->edad,
+                'peso' => 0,
+                'altura' => 0,
+                'genero' => '',
+                'imc' => 0,
+            ]);
+            return view('primerospasos');
+        } else {
+            if ($request->peso) {
+                DB::table('datos')
+                    ->where('documento', Auth::user()->documento)
+                    ->update(['peso' => $request->peso]);
+                    return view('primerospasos');
+            } else {
+                return "no";
+            }
+
+        }
+
 
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Payment  $payment
+     * @param  \App\Models\Datos  $datos
      * @return \Illuminate\Http\Response
      */
-    public function show(Payment $payment)
+    public function show(Datos $datos)
     {
         //
     }
@@ -60,10 +76,10 @@ class PaymentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Payment  $payment
+     * @param  \App\Models\Datos  $datos
      * @return \Illuminate\Http\Response
      */
-    public function edit(Payment $payment)
+    public function edit(Datos $datos)
     {
         //
     }
@@ -72,22 +88,21 @@ class PaymentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Payment  $payment
+     * @param  \App\Models\Datos  $datos
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Payment $payment)
+    public function update(Request $request, Datos $datos)
     {
-        DB::update('update usuarios set pago = "COMPLETADO" where email = ?', [Auth::user()->email]);
-        return redirect('dashboard');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Payment  $payment
+     * @param  \App\Models\Datos  $datos
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Payment $payment)
+    public function destroy(Datos $datos)
     {
         //
     }
