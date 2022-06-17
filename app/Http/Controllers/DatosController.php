@@ -51,10 +51,20 @@ class DatosController extends Controller
             if ($request->peso) {
                 DB::table('datos')
                     ->where('documento', Auth::user()->documento)
-                    ->update(['peso' => $request->peso]);
+                    ->update(['peso' => $request->peso, 'altura' => $request->altura, 'imc' => round(($request->peso)/($request->altura*$request->altura), 2)]);
                     return view('primerospasos');
             } else {
-                return "no";
+                if ($request->genero) {
+                    DB::table('datos')
+                        ->where('documento', Auth::user()->documento)
+                        ->update(['genero' => $request->genero]);
+                    $datos = DB::table('datos')
+                            ->select('datos.*')
+                            ->where('documento', Auth::user()->documento);
+                    $datos = $datos->get();
+                    return view('primerospasos')->with('datos', $datos);
+                }
+
             }
 
         }

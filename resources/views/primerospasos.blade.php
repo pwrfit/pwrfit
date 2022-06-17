@@ -205,12 +205,14 @@
                             <div class="form-outer">
                                 <form action="" method="post">
                                     @csrf
+                                    @foreach ($datos as $dato)
                                     <div class="page">
-                                        <p>Edad: </p><br>
-                                        <p>Altura: </p><br>
-                                        <p>Peso: </p><br>
-                                        <p>Género: </p><br>
+                                        <p>Edad: {{ $dato->edad }} años</p><br>
+                                        <p>Altura: {{ $dato->altura }}m</p><br>
+                                        <p>Peso: {{ $dato->peso }}kg</p><br>
+                                        <p>Género: {{ $dato->genero }}</p><br>
                                         <p>IMC: </p>
+                                    @endforeach
                                         <div class="field btns">
                                             <button class="submit">Aceptar</button>
                                         </div>
