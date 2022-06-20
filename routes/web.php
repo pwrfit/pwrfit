@@ -23,7 +23,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified', 'pago'])->name('dashboard');
+})->middleware(['auth', 'verified', 'pago', 'dificultad'])->name('dashboard');
 
 Route::get('contact', [ContactController::class, 'create'])->name('contact');
 Route::get('payment', [PaymentController::class, 'create'])->middleware(['auth','verified'])->name('payment');

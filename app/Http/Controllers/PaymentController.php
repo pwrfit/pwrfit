@@ -77,8 +77,8 @@ class PaymentController extends Controller
      */
     public function update(Request $request, Payment $payment)
     {
-        DB::update('update usuarios set pago = "COMPLETADO" where email = ?', [Auth::user()->email]);
-        return redirect('dashboard');
+        DB::update('update usuarios set pago = "COMPLETADO" where documento = ?', [Auth::user()->documento]);
+        return redirect('primerospasos');
     }
 
     /**

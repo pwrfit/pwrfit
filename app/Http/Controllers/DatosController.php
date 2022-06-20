@@ -62,7 +62,26 @@ class DatosController extends Controller
                             ->select('datos.*')
                             ->where('documento', Auth::user()->documento);
                     $datos = $datos->get();
-                    return view('primerospasos')->with('datos', $datos);
+                    foreach ($datos as $dato) {
+                        $imc = $dato->imc;
+                    }
+                    if ($imc<18.5) {
+                        $dificultad = "Principiante";
+                        $id_dificultad = 1;
+                    } else {
+                        if ($imc>=18.5 and $imc<=24.99) {
+                            $dificultad = "Intermedio";
+                            $id_dificultad = 2;
+                        } else {
+                            $dificultad = "Principiante";
+                            $id_dificultad = 1;
+                        }
+                    }
+                    DB::update('update usuarios set dificultad_seleccionada = ? where documento = ?', [$id_dificultad, Auth::user()->documento]);
+
+                    return view('primerospasos')->with('datos', $datos)->with('dificultad', $dificultad)->with('imc', $imc);
+                }else {
+                    return redirect('dashboard');
                 }
 
             }

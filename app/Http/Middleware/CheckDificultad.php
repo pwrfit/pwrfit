@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CheckDificultad
 {
@@ -16,6 +17,12 @@ class CheckDificultad
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+        if (!is_null(Auth::user()->dificultad_seleccionada)) {
+            return $next($request);
+        } else {
+            if (is_null(Auth::user()->dificultad_seleccionada)) {
+                return redirect('primerospasos');
+            }
+        }
     }
 }

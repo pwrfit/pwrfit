@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Dificultad;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DificultadController extends Controller
 {
@@ -24,6 +25,9 @@ class DificultadController extends Controller
      */
     public function create(Request $request)
     {
+        if (!is_null(Auth::user()->dificultad_seleccionada)) {
+            return redirect()->route('dashboard');
+        }
         return view('primerospasos');
     }
 

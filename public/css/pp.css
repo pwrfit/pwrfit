@@ -12,10 +12,6 @@ body{
   min-height: 100vh;
   overflow: hidden;
 }
-::selection{
-  color: #fff;
-  background: #d43f8d;
-}
 .container{
   width: 330px;
   background: #fff;
@@ -75,7 +71,6 @@ form .page .field button{
   width: 100%;
   height: calc(100% + 5px);
   border: none;
-  background: #d33f8d;
   margin-top: -20px;
   border-radius: 5px;
   color: #fff;
@@ -128,8 +123,8 @@ form .page .btns button.next{
   line-height: 25px;
 }
 .progress-bar .step .bullet.active{
-  border-color: #d43f8d;
-  background: #d43f8d;
+  border-color: #F23849;
+  background: #F23849;
 }
 .progress-bar .step .bullet span{
   position: absolute;
@@ -150,7 +145,7 @@ form .page .btns button.next{
   background: #262626;
 }
 .progress-bar .step .bullet.active:after{
-  background: #d43f8d;
+  background: #F23849;
   transform: scaleX(0);
   transform-origin: left;
   animation: animate 0.3s linear forwards;
@@ -165,7 +160,7 @@ form .page .btns button.next{
   display: none;
 }
 .progress-bar .step p.active{
-  color: #d43f8d;
+  color: #F23849;
   transition: 0.2s linear;
 }
 .progress-bar .step .check{

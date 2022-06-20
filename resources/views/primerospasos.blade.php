@@ -14,7 +14,7 @@
 
 <body class="bg-home4">
     <div class="container">
-        <p>Completemos algunos datos antes de empezar.</p>
+        <p>Completemos algunos datos antes de empezar. Recuerda que los podrás cambiar más adelante.</p>
         @if (Request::isMethod('get'))
             <div class="progress-bar">
                 <div class="step">
@@ -211,7 +211,8 @@
                                         <p>Altura: {{ $dato->altura }}m</p><br>
                                         <p>Peso: {{ $dato->peso }}kg</p><br>
                                         <p>Género: {{ $dato->genero }}</p><br>
-                                        <p>IMC: </p>
+                                        <p>IMC: {{ $dato->imc }} </p><br>
+                                        <p>Dificultad recomendada: {{ $dificultad }} </p>
                                     @endforeach
                                         <div class="field btns">
                                             <button class="submit">Aceptar</button>

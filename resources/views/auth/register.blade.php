@@ -21,7 +21,7 @@
 
             <!-- Nombre -->
             <div>
-                <x-label for="nombre" :value="__('Nombre')" />
+                <x-label for="nombre" :value="__('Nombre completo')" />
 
                 <x-input id="nombre" class="block mt-1 w-full" type="text" name="nombre" :value="old('nombre')" required
                     autofocus />
