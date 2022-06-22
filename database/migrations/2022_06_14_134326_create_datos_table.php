@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('datos', function (Blueprint $table) {
             $table->id();
-            $table->string('documento');
+            $table->string('documento')->unique();
             $table->integer('edad');
             $table->integer('peso');
             $table->double('altura');
