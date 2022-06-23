@@ -44,7 +44,6 @@ class RegisteredUserController extends Controller
 
         if ($request->boletin) {
             $user = User::create([
-                'rol' => '3',
                 'nombre' => $request->nombre,
                 'documento' => $request->documento,
                 'email' => $request->email,
@@ -55,7 +54,6 @@ class RegisteredUserController extends Controller
             ]);
         }else {
             $user = User::create([
-                'rol' => '3',
                 'nombre' => $request->nombre,
                 'documento' => $request->documento,
                 'email' => $request->email,

@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('usuarios', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('rol');
             $table->string('nombre');
             $table->string('documento')->unique();
             $table->string('email')->unique();
@@ -31,7 +30,6 @@ return new class extends Migration
             $table->rememberToken();
 
             $table->foreign('membresia')->references('id')->on('membresia');
-            $table->foreign('rol')->references('id')->on('roles');
             $table->foreign('dificultad_seleccionada')->references('id')->on('dificultad');
         });
     }
