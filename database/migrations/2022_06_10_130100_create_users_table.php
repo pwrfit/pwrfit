@@ -29,8 +29,8 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
 
-            $table->foreign('membresia')->references('id')->on('membresia');
-            $table->foreign('dificultad_seleccionada')->references('id')->on('dificultad');
+            $table->foreign('membresia')->references('id')->on('membresia')->onDelete('cascade');
+            $table->foreign('dificultad_seleccionada')->references('id')->on('dificultad')->onDelete('cascade');
         });
     }
 

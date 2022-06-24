@@ -1,13 +1,13 @@
 <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
     <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-            <a href="{{ route('dashboard')}}" class="nav-link active" aria-current="page">
+            <a href="{{ route('dashboard')}}" id="navdashboard" class="nav-link link-dark">
                 <i class="fa-regular fa-house-chimney" style="padding-right: 5px"></i>
                 Inicio
             </a>
         </li>
         <li>
-            <a href="{{ route('categorias') }}" class="nav-link link-dark">
+            <a href="{{ route('categorias') }}" id="navcategorias" class="nav-link link-dark">
                 <i class="fa-regular fa-list" style="padding-right: 5px"></i>
                 Categorias
             </a>
