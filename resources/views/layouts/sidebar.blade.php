@@ -25,9 +25,21 @@
             </a>
         </li>
         <li>
+            <a href="#" class="nav-link link-dark">
+                <i class="fa-regular fa-user-check" style="padding-right: 5px"></i>
+                Roles
+            </a>
+        </li>
+        <li>
             <a href="{{ route('usuarios.crud')}}" class="nav-link link-dark">
                 <i class="fa-regular fa-user-group" style="padding-right: 5px"></i>
                 Usuarios
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('usuarios.crud')}}" class="nav-link link-dark">
+                <i class="fa-regular fa-video" style="padding-right: 5px"></i>
+                Videos
             </a>
         </li>
         <li>
