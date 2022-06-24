@@ -15,7 +15,8 @@
    <body>
       <main>
         @include('layouts.sidebar')
-        @include('dashboard.admin.index')
+        {{-- @include('dashboard.admin.index') --}}
+        @include('dashboard.index')
       </main>
       <script src="{{ asset('bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
       <script src="{{ asset('js/sidebars.js') }}"></script>

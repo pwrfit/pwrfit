@@ -15,4 +15,9 @@ class DashboardController extends Controller
     {
         return view('dashboard.usuarios');
     }
+
+    public function categorias(Request $request)
+    {
+        return view('dashboard.categorias');
+    }
 }

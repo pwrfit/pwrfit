@@ -33,5 +33,6 @@ Route::get('primerospasos', [DificultadController::class, 'create'])->middleware
 Route::post('primerospasos', [DatosController::class, 'store'])->middleware(['auth','verified', 'pago'])->name('datos');
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified', 'pago', 'dificultad'])->name('dashboard');
 Route::get('/admin/usuarios', [DashboardController::class, 'usuarios'])->middleware(['auth', 'verified'])->name('usuarios.crud');
+Route::get('/categorias', [DashboardController::class, 'categorias'])->middleware(['auth', 'verified'])->name('categorias');
 
 require __DIR__.'/auth.php';

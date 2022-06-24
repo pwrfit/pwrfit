@@ -7,7 +7,7 @@
             </a>
         </li>
         <li>
-            <a href="#" class="nav-link link-dark">
+            <a href="{{ route('categorias') }}" class="nav-link link-dark">
                 <i class="fa-regular fa-list" style="padding-right: 5px"></i>
                 Categorias
             </a>
