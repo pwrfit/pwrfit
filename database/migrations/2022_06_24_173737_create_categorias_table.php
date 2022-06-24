@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('categorias', function (Blueprint $table) {
             $table->id();
             $table->string('nombrecat');
+            $table->string('icono');
+            $table->string('color');
         });
     }
 

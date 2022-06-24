@@ -6,6 +6,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\DificultadController;
 use App\Http\Controllers\DatosController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CategoriasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,6 @@ Route::get('primerospasos', [DificultadController::class, 'create'])->middleware
 Route::post('primerospasos', [DatosController::class, 'store'])->middleware(['auth','verified', 'pago'])->name('datos');
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified', 'pago', 'dificultad'])->name('dashboard');
 Route::get('/admin/usuarios', [DashboardController::class, 'usuarios'])->middleware(['auth', 'verified'])->name('usuarios.crud');
-Route::get('/categorias', [DashboardController::class, 'categorias'])->middleware(['auth', 'verified'])->name('categorias');
+Route::get('/categorias', [CategoriasController::class, 'index'])->middleware(['auth', 'verified'])->name('categorias');
 
 require __DIR__.'/auth.php';

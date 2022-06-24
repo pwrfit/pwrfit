@@ -9,11 +9,11 @@
     </div>
     <section class="content">
         <div class="container-fluid">
-            <div class="row">
+            <div class="row cat">
                 <div class="col-lg-3 col-3">
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>0</h3>
+                            <h3>{{ $numcategorias}} </h3>
                             <p>Categorias</p>
                         </div>
                         <div class="icon">

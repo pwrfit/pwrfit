@@ -1,4 +1,17 @@
 <div class="categories">
+    <header class="header">
+        <form class="search-bar">
+          <input class="search-input" type="search" placeholder="Buscar" />
+          <button type="submit" class="search-btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+        <div class="menu-icons">
+          <a href="#">
+            <img src="{{ asset('img/cloud-arrow-up-solid.svg')}}" style="width: 40px;" alt="Upload Video" />
+          </a>
+        </div>
+      </header>
     <section class="category-section">
         <button class="category active">Todo</button>
         <button class="category">Gluteos</button>

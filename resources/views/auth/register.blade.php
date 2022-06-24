@@ -23,15 +23,15 @@
             <div>
                 <x-label for="nombre" :value="__('Nombre completo')" />
 
-                <x-input id="nombre" class="block mt-1 w-full" type="text" name="nombre" :value="old('nombre')" required
-                    autofocus />
+                <x-input id="nombre" class="block mt-1 w-full" type="text" name="nombre" :value="old('nombre')"
+                    required autofocus />
             </div>
 
             <!-- Documento -->
             <div class="mt-4">
                 <x-label for="documento" :value="__('Documento de Identidad')" />
 
-                <x-input id="documento" class="block mt-1 w-full" type="text" name="documento" :value="old('documento')"
+                <x-input id="documento" class="block mt-1 w-full" type="number" name="documento" :value="old('documento')"
                     required />
             </div>
 
@@ -44,7 +44,7 @@
                     <option selected disabled>Elige una membresia</option>
                     <option value="1">Casual - $20.900/mes</option>
                     <option value="2">Comprometido - $199.900/año</option>
-                    <option value="3">Aficionado - $5.900/mes</option>
+                    <option value="3">Aficionado - $5.900/semana</option>
                 </select>
             </div>
 
@@ -52,7 +52,8 @@
             <div class="mt-4">
                 <x-label for="email" :value="__('Correo')" />
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"
+                    required />
             </div>
 
             <!-- Contraseña -->
@@ -111,4 +112,15 @@
     </x-auth-card>
     @include('layouts.modal')
     <script src="{{ asset('index/js/app.js') }}"></script>
+    <style>
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
 </x-guest-layout>
