@@ -15,8 +15,12 @@
    <body>
       <main>
         @include('layouts.sidebar')
-        {{-- @include('dashboard.admin.index') --}}
-        @include('dashboard.index')
+        @if (Auth::user()->rol == 1)
+            @include('dashboard.admin.index')
+        @else
+            @include('dashboard.index')
+        @endif
+
       </main>
       <script src="{{ asset('jquery/dist/jquery.js')}}"></script>
       <script src="{{ asset('bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>

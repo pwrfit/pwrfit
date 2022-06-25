@@ -32,7 +32,12 @@
 <body>
     <main>
         @include('layouts.sidebar')
-        @include('dashboard.categorias')
+        @if (Auth::user()->rol == 1)
+            @include('dashboard.admin.categorias')
+        @else
+            @include('dashboard.categorias')
+        @endif
+
     </main>
     <script src="{{ asset('bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('js/sidebars.js') }}"></script>

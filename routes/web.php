@@ -36,4 +36,6 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['au
 Route::get('/admin/usuarios', [DashboardController::class, 'usuarios'])->middleware(['auth', 'verified'])->name('usuarios.crud');
 Route::get('/categorias', [CategoriasController::class, 'index'])->middleware(['auth', 'verified'])->name('categorias');
 
+// Route::resource('admin', );
+
 require __DIR__.'/auth.php';

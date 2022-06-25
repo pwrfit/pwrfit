@@ -17,37 +17,40 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $usuario = new User();
-        $usuario ->nombre = 'Julián';
-        $usuario->documento = '1025647184';
-        $usuario->email = 'jaospino481@misena.edu.co';
-        $usuario->password = Hash::make('12345678');
-        $usuario->membresia = 4;
-        $usuario->dificultad_seleccionada = random_int(1, 3);
-        $usuario->pago = 'COMPLETADO';
-        $usuario-> email_verified_at = date("Y-m-d H:i:s");
-        $usuario->save();
+        User::create([
+            'nombre' => 'Julián',
+            'rol' => '1',
+            'documento' => '1025647184',
+            'email' => 'jaospino481@misena.edu.co',
+            'password' => Hash::make('12345678'),
+            'membresia' => 4,
+            'dificultad_seleccionada' => random_int(1, 3),
+            'pago' => 'COMPLETADO',
+            'email_verified_at' => date("Y-m-d H:i:s"),
+        ]);
 
-        $usuario = new User();
-        $usuario ->nombre = 'Pablo';
-        $usuario->documento = '88242854';
-        $usuario->email = 'syvi@mailinator.com';
-        $usuario->password = Hash::make('12345678');
-        $usuario->membresia = random_int(1, 3);
-        $usuario->dificultad_seleccionada = random_int(1, 3);
-        $usuario->pago = 'COMPLETADO';
-        $usuario-> email_verified_at = date("Y-m-d H:i:s");
-        $usuario->save();
+        User::create([
+            'nombre' => 'Pablo',
+            'rol' => '2',
+            'documento' => '88242854',
+            'email' => 'syvi@mailinator.com',
+            'password' => Hash::make('12345678'),
+            'membresia' => 4,
+            'dificultad_seleccionada' => random_int(1, 3),
+            'pago' => 'COMPLETADO',
+            'email_verified_at' => date("Y-m-d H:i:s"),
+        ]);
 
-        $usuario = new User();
-        $usuario ->nombre = 'Yeison';
-        $usuario->documento = '56461325';
-        $usuario->email = 'wawy@mailinator.com';
-        $usuario->password = Hash::make('12345678');
-        $usuario->membresia = random_int(1, 3);
-        $usuario->dificultad_seleccionada = random_int(1, 3);
-        $usuario->pago = 'COMPLETADO';
-        $usuario-> email_verified_at = date("Y-m-d H:i:s");
-        $usuario->save();
+        User::create([
+            'nombre' => 'Yeison',
+            'rol' => '3',
+            'documento' => '56461325',
+            'email' => 'wawy@mailinator.com',
+            'password' => Hash::make('12345678'),
+            'membresia' => random_int(1, 3),
+            'dificultad_seleccionada' => random_int(1, 3),
+            'pago' => 'COMPLETADO',
+            'email_verified_at' => date("Y-m-d H:i:s"),
+        ]);
     }
 }

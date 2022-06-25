@@ -3,19 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categorias;
+use App\Models\Roles;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
     public function index(Request $request)
     {
-        $numcategorias = Categorias::all();
-        $i = 0;
-        foreach ($numcategorias as $numcategorias) {
-            $i += 1;
-        }
-        $numcategorias = $i;
-        return view('dashboard.dashboard', compact('numcategorias'));
+        $categorias = Categorias::all();
+        $roles = Roles::all();
+        return view('dashboard.dashboard', compact('categorias', 'roles'));
     }
 
     public function usuarios(Request $request)
