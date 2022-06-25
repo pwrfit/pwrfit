@@ -19,11 +19,11 @@ class UserSeeder extends Seeder
     {
         User::create([
             'nombre' => 'Julián',
-            'rol' => '1',
+            'rol_id' => '1',
             'documento' => '1025647184',
             'email' => 'jaospino481@misena.edu.co',
             'password' => Hash::make('12345678'),
-            'membresia' => 4,
+            'membresia_id' => 4,
             'dificultad_seleccionada' => random_int(1, 3),
             'pago' => 'COMPLETADO',
             'email_verified_at' => date("Y-m-d H:i:s"),
@@ -31,11 +31,11 @@ class UserSeeder extends Seeder
 
         User::create([
             'nombre' => 'Pablo',
-            'rol' => '2',
+            'rol_id' => '2',
             'documento' => '88242854',
             'email' => 'syvi@mailinator.com',
             'password' => Hash::make('12345678'),
-            'membresia' => 4,
+            'membresia_id' => 4,
             'dificultad_seleccionada' => random_int(1, 3),
             'pago' => 'COMPLETADO',
             'email_verified_at' => date("Y-m-d H:i:s"),
@@ -43,11 +43,11 @@ class UserSeeder extends Seeder
 
         User::create([
             'nombre' => 'Yeison',
-            'rol' => '3',
+            'rol_id' => '3',
             'documento' => '56461325',
             'email' => 'wawy@mailinator.com',
             'password' => Hash::make('12345678'),
-            'membresia' => random_int(1, 3),
+            'membresia_id' => random_int(1, 3),
             'dificultad_seleccionada' => random_int(1, 3),
             'pago' => 'COMPLETADO',
             'email_verified_at' => date("Y-m-d H:i:s"),

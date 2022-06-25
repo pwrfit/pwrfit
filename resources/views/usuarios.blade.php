@@ -34,12 +34,7 @@
 <body>
     <main>
         @include('layouts.sidebar')
-        @if (Auth::user()->rol_id == 1)
-            @include('dashboard.admin.categorias')
-        @else
-            @include('dashboard.categorias')
-        @endif
-
+        @include('usuarios.index')
     </main>
     <script src="{{ asset('jquery/dist/jquery.js') }}"></script>
     <script src="{{ asset('bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>

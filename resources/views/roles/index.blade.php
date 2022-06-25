@@ -1,4 +1,3 @@
-<!-- create a datatable with crud -->
 <html lang="en">
 
 <head>
@@ -24,23 +23,23 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12" style="padding-top: 50px">
-                <a href="{{ route('categorias.create')}}" class="btn btn-secondary" style="margin-bottom: 20px">Nuevo</a>
+                <a href="{{ route('roles.create')}}" class="btn btn-secondary" style="margin-bottom: 20px">Nuevo</a>
                 <table id="example" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Nombre de la categoria</th>
+                            <th>Rol</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($categorias as $categoria)
+                        @foreach ($roles as $rol)
                             <tr>
-                                <td>{{ $categoria->id }}</td>
-                                <td>{{ $categoria->nombrecat }}</td>
+                                <td>{{ $rol->id }}</td>
+                                <td>{{ $rol->rol }}</td>
                                 <td>
-                                    <a href="{{ route('categorias.edit', $categoria->id) }}" class="btn btn-primary">Editar</a>
-                                    <form action="{{ route('categorias.delete', $categoria->id) }}" method="POST" style="display: inline">
+                                    <a href="{{ route('roles.edit', $rol->id) }}" class="btn btn-primary">Editar</a>
+                                    <form action="{{ route('roles.delete', $rol->id) }}" method="POST" style="display: inline">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Eliminar</button>

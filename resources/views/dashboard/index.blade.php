@@ -6,7 +6,7 @@
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>
         </form>
-        @if (Auth::user()->rol == 2)
+        @if (Auth::user()->rol_id == 2)
             <div class="menu-icons">
                 <a href="#">
                     <img src="{{ asset('img/cloud-arrow-up-solid.svg') }}" style="width: 40px;" alt="Upload Video" />

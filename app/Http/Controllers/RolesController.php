@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Categorias;
+use App\Models\Roles;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class CategoriasController extends Controller
+class RolesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class CategoriasController extends Controller
      */
     public function index()
     {
-        $categorias = Categorias::all();
-        return view('categorias', compact('categorias'));
+        $roles = Roles::all();
+        return view('roles', compact('roles'));
     }
 
     /**
@@ -26,8 +26,7 @@ class CategoriasController extends Controller
      */
     public function create()
     {
-
-        return view('categorias.create');
+            return view('roles.create');
     }
 
     /**
@@ -38,57 +37,61 @@ class CategoriasController extends Controller
      */
     public function store(Request $request)
     {
-        $categorias = new Categorias;
-        $categorias->nombrecat = $request->nombrecat;
-        $categorias->icono = $request->icono;
-        $categorias->color = $request->color;
-        $categorias->save();
-        return redirect()->route('categorias');
+        $roles = new Roles;
+        $roles->rol = $request->rol;
+        $roles->save();
+        return redirect()->route('roles');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Roles  $roles
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Roles $roles)
     {
-
+        //
     }
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Roles  $roles
+     * @return \Illuminate\Http\Response
+     */
     public function edit($id)
     {
-        $categoria = Categorias::find($id);
-        return view('categorias.edit', compact('categoria'));
+        $roles = Roles::find($id);
+        return view('roles.edit', compact('roles'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Roles  $roles
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Roles $roles, $id)
     {
-        $categoria = Categorias::find($id);
-        $categoria->nombrecat = $request->nombrecat;
-        $categoria->save();
-        return redirect('categorias');
+        $roles = Roles::find($id);
+        $roles->rol = $request->rol;
+        $roles->save();
+        return redirect()->route('roles');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Roles  $roles
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $categoria = Categorias::find($id);
-        $categoria->delete();
-        DB::statement('ALTER TABLE categorias AUTO_INCREMENT = 1');
-        return redirect('categorias');
+        $roles = Roles::find($id);
+        $roles->delete();
+        DB::statement('ALTER TABLE roles AUTO_INCREMENT = 1');
+        return redirect()->route('roles');
     }
 }

@@ -1,4 +1,4 @@
-<div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
+<div class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
     <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
             <a href="{{ route('dashboard') }}" id="navdashboard" class="nav-link link-dark">
@@ -12,7 +12,7 @@
                 Categorias
             </a>
         </li>
-        @if (Auth::user()->rol != 1)
+        @if (Auth::user()->rol_id != 1)
             <li>
                 <a href="#" class="nav-link link-dark">
                     <i class="fa-regular fa-message" style="padding-right: 5px"></i>
@@ -26,41 +26,41 @@
                 </a>
             </li>
         @endif
-        @if (Auth::user()->rol != 1)
+        @if (Auth::user()->rol_id != 1)
         @else
             <li>
-                <a href="#" class="nav-link link-dark">
+                <a href="{{ route('roles') }}" id="navroles"  class="nav-link link-dark">
                     <i class="fa-regular fa-user-check" style="padding-right: 5px"></i>
                     Roles
                 </a>
             </li>
             <li>
-                <a href="{{ route('usuarios.crud') }}" class="nav-link link-dark">
+                <a href="{{ route('usuarios') }}" id="navusuarios" class="nav-link link-dark">
                     <i class="fa-regular fa-user-group" style="padding-right: 5px"></i>
                     Usuarios
                 </a>
             </li>
             <li>
-                <a href="{{ route('usuarios.crud') }}" class="nav-link link-dark">
+                <a href="{{ route('usuarios') }}" class="nav-link link-dark">
                     <i class="fa-regular fa-video-arrow-up-right" style="padding-right: 5px"></i>
                     Videos pendientes
                 </a>
             </li>
             <li>
-                <a href="{{ route('usuarios.crud') }}" class="nav-link link-dark">
+                <a href="{{ route('usuarios') }}" class="nav-link link-dark">
                     <i class="fa-regular fa-video" style="padding-right: 5px"></i>
                     Videos
                 </a>
             </li>
         @endif
-        @if (Auth::user()->rol != 1)
+        @if (Auth::user()->rol_id != 1)
             <li>
                 <a href="#" class="nav-link link-dark">
                     <i class="fa-regular fa-users" style="padding-right: 5px"></i>
                     Otros usuarios
                 </a>
             </li>
-            @if (Auth::user()->rol == 2)
+            @if (Auth::user()->rol_id == 2)
                 <li>
                     <a href="#" class="nav-link link-dark">
                         <i class="fa-regular fa-cloud-arrow-up" style="padding-right: 5px"></i>
@@ -100,3 +100,24 @@
     </div>
 </div>
 <div class="b-example-divider"></div>
+<script>
+    var pathname = window.location.pathname;
+    var navdashboard = document.getElementById("navdashboard");
+    var navcategorias = document.getElementById("navcategorias");
+    var navroles = document.getElementById("navroles");
+    var navusuarios = document.getElementById("navusuarios");
+    // add class active to current page
+    if (pathname.includes("dashboard")) {
+        navdashboard.classList.add("active");
+        navdashboard.classList.remove("link-dark");
+    } else if (pathname.includes("categorias")) {
+        navcategorias.classList.add("active");
+        navcategorias.classList.remove("link-dark");
+    } else if (pathname.includes("roles")) {
+        navroles.classList.add("active");
+        navroles.classList.remove("link-dark");
+    } else if (pathname.includes("usuarios")) {
+        navusuarios.classList.add("active");
+        navusuarios.classList.remove("link-dark");
+    }
+</script>

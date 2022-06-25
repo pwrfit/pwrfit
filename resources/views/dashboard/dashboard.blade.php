@@ -15,7 +15,7 @@
    <body>
       <main>
         @include('layouts.sidebar')
-        @if (Auth::user()->rol == 1)
+        @if (Auth::user()->rol_id == 1)
             @include('dashboard.admin.index')
         @else
             @include('dashboard.index')

@@ -1,3 +1,4 @@
+<link href="{{ asset('css/style.css') }}" rel="stylesheet">
 <div class="content-wrapper" style="width: 40%; padding-top: 30px;">
     <section class="content">
         <div class="container-fluid">

@@ -19,7 +19,7 @@
                         <div class="icon">
                             <i class="fa-regular fa-shapes" style="font-size: 70px"></i>
                         </div>
-                        <a href="#" class="small-box-footer">Administrar<i class="fa-solid fa-circle-arrow-right"
+                        <a href="{{ route('categorias') }}" class="small-box-footer">Administrar<i class="fa-solid fa-circle-arrow-right"
                                 style="padding-left: 5px;"></i></a>
                     </div>
                 </div>
@@ -32,20 +32,20 @@
                         <div class="icon">
                             <i class="fa-regular fa-user-check" style="font-size: 70px"></i>
                         </div>
-                        <a href="#" class="small-box-footer">Administrar<i class="fa-solid fa-circle-arrow-right"
+                        <a href="{{ route('roles') }}" class="small-box-footer">Administrar<i class="fa-solid fa-circle-arrow-right"
                                 style="padding-left: 5px;"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-3">
                     <div class="small-box bg-danger">
                         <div class="inner">
-                            <h3>0</h3>
+                            <h3>{{ $usuarios->count()}}</h3>
                             <p>Usuarios registrados</p>
                         </div>
                         <div class="icon">
                             <i class="fa-regular fa-user" style="font-size: 70px"></i>
                         </div>
-                        <a href="#" class="small-box-footer">Administrar<i class="fa-solid fa-circle-arrow-right"
+                        <a href="{{ route('usuarios') }}" class="small-box-footer">Administrar<i class="fa-solid fa-circle-arrow-right"
                                 style="padding-left: 5px;"></i></a>
                     </div>
                 </div>

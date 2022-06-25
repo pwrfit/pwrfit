@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categorias;
 use App\Models\Roles;
+use App\Models\Usuarios;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -12,7 +13,8 @@ class DashboardController extends Controller
     {
         $categorias = Categorias::all();
         $roles = Roles::all();
-        return view('dashboard.dashboard', compact('categorias', 'roles'));
+        $usuarios = Usuarios::all();
+        return view('dashboard.dashboard', compact('categorias', 'roles', 'usuarios'));
     }
 
     public function usuarios(Request $request)

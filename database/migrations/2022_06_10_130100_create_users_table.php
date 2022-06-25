@@ -16,22 +16,22 @@ return new class extends Migration
         Schema::create('usuarios', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->unsignedBigInteger('rol');
+            $table->unsignedBigInteger('rol_id');
             $table->string('documento')->unique();
             $table->string('email')->unique();
             $table->string('password');
             $table->string('direccion')->nullable();
             $table->string('celular')->nullable();
             $table->string('boletin', 2)->nullable();
-            $table->unsignedBigInteger('membresia');
+            $table->unsignedBigInteger('membresia_id');
             $table->unsignedBigInteger('dificultad_seleccionada')->nullable();
             $table->string('pago')->nullable();
             $table->date('validohasta')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
 
-            $table->foreign('rol')->references('id')->on('roles')->onDelete('cascade');
-            $table->foreign('membresia')->references('id')->on('membresia')->onDelete('cascade');
+            $table->foreign('rol_id')->references('id')->on('roles')->onDelete('cascade');
+            $table->foreign('membresia_id')->references('id')->on('membresia')->onDelete('cascade');
             $table->foreign('dificultad_seleccionada')->references('id')->on('dificultad')->onDelete('cascade');
         });
     }
