@@ -30,7 +30,7 @@ class PaymentController extends Controller
         if (Auth::user()->pago == "COMPLETADO") {
             return redirect()->route('dashboard');
         }
-        $membresia = Auth::user()->membresia;
+        $membresia = Auth::user()->membresia_id;
         $precio = Membresia::find($membresia);
         return view('payment', compact('precio'));
     }

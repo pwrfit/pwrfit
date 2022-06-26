@@ -92,6 +92,6 @@ class RolesController extends Controller
         $roles = Roles::find($id);
         $roles->delete();
         DB::statement('ALTER TABLE roles AUTO_INCREMENT = 1');
-        return redirect()->route('roles');
+        return redirect()->route('roles')->with('success', 'Rol eliminado correctamente');
     }
 }

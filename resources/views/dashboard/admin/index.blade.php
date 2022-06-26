@@ -1,3 +1,4 @@
+<link href="{{ asset('css/style.css') }}" rel="stylesheet">
 <div class="content-wrapper" style="width: 40%; padding-top: 30px;">
     <div class="content-header">
         <div class="container-fluid">
@@ -10,7 +11,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row cat">
-                <div class="col-lg-3 col-3">
+                <div class="col-lg-4 col-2">
                     <div class="small-box bg-info">
                         <div class="inner">
                             <h3>{{ $categorias->count()}}</h3>
@@ -23,7 +24,7 @@
                                 style="padding-left: 5px;"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-3">
+                <div class="col-lg-4 col-2">
                     <div class="small-box bg-success">
                         <div class="inner">
                             <h3>{{ $roles->count()}}</h3>
@@ -36,7 +37,7 @@
                                 style="padding-left: 5px;"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-3">
+                <div class="col-lg-4 col-2">
                     <div class="small-box bg-danger">
                         <div class="inner">
                             <h3>{{ $usuarios->count()}}</h3>
@@ -49,7 +50,7 @@
                                 style="padding-left: 5px;"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-6">
+                <div class="col-lg-4 col-2">
                     <div class="small-box bg-light">
                         <div class="inner">
                             <h3>0</h3>
@@ -62,7 +63,7 @@
                                 style="padding-left: 5px;"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-6">
+                <div class="col-lg-4 col-2">
                     <div class="small-box bg-warning">
                         <div class="inner">
                             <h3>0</h3>

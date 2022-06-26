@@ -3,7 +3,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row cat">
-                @foreach ($categorias as $categoria)
+                @foreach ($usuarios as $usuario)
                     <div class="col-lg-4 col-4">
                         <a href="">
                             <div class="small-box bg-{{ $categoria->color }}">

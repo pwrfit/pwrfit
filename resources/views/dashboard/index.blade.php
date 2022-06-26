@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="{{ asset('css/videos.css')}}">
 <div class="categories">
     <header class="header">
         <form class="search-bar">

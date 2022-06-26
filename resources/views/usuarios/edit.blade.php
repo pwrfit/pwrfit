@@ -9,114 +9,119 @@
     <link href="{{ asset('bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- FontAwesome CSS -->
     <link href="https://site-assets.fontawesome.com/releases/v6.1.1/css/all.css" rel="stylesheet">
-    <!-- DataTables -->
-    <link rel="stylesheet" href="{{ asset('bootstrap/dist/css/dataTables.bootstrap5.min.css') }}">
     <!-- Styles -->
-    <link href="{{ asset('css/sidebars.css') }}" rel="stylesheet">
-    {{-- <link href="{{ asset('css/style.css') }}" rel="stylesheet"> --}}
+    {{-- <link href="{{ asset('css/sidebars.css') }}" rel="stylesheet"> --}}
+    <link rel="stylesheet" href="{{ asset('css/sidebar/style.css') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 </head>
 
-<body>
-    <main>
-        @include('layouts.sidebar')
-        <div class="container" style="padding-top:50px;">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Editar usuario</h3>
-                        </div>
-                        <div class="card-body">
-                            <form action="{{ route('usuarios.update', $usuario->id) }}" method="POST">
-                                @csrf
-                                @method('PUT')
-                                {{-- nombre --}}
-                                <div class="form-group">
-                                    <label for="nombre">Nombre del usuario</label>
-                                    <input type="text" name="nombre" id="nombre" class="form-control"
-                                        value="{{ $usuario->nombre }}">
+<body class="app sidebar-mini">
+    <div class="page">
+        <div class="page-main">
+            <div class="sticky">
+                @include('layouts.sidebar')
+                <div class="main-content app-content mt-0">
+                    <div class="side-app">
+                        <div class="main-container container-fluid">
+                            <div class="col-md-12">
+                                <div class="card" style="margin-top: 50px">
+                                    <div class="card-header">
+                                        <h3>Editar usuario</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <form action="{{ route('usuarios.update', $usuario->id) }}"
+                                            method="POST">
+                                            @csrf
+                                            @method('PUT')
+                                            <div class="form-group">
+                                                <label for="nombre">Nombre completo del usuario</label>
+                                                <input type="text" name="nombre" id="nombre" class="form-control"
+                                                    value="{{ $usuario ->nombre  }}" required>
+                                            </div>
+                                            <div class="form-group" style="padding-top: 10px;">
+                                                <label for="documento">Documento del usuario</label>
+                                                <input type="text" name="documento" id="documento" class="form-control"
+                                                    value="{{ $usuario->documento  }}" required>
+                                            </div>
+                                            <div class="form-group" style="padding-top: 10px;">
+                                                <label for="email">Email del usuario</label>
+                                                <input type="email" name="email" id="email" class="form-control"
+                                                    value="{{ $usuario->email  }}" required>
+                                            </div>
+                                            <div class="form-group" style="padding-top: 10px;">
+                                                <label for="rol">Rol del usuario</label>
+                                                <select name="rol" id="rol" class="form-control">
+                                                    <option value="">Seleccione un rol</option>
+                                                    @foreach ($roles as $rol)
+                                                    <option value="{{ $rol->id }}"
+                                                        {{ $rol->id == $usuario->rol_id ? 'selected' : '' }}>
+                                                        {{ $rol->rol }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="form-group" style="padding-top: 10px;">
+                                                <label for="membresia">Membresia del usuario</label>
+                                                <select name="membresia" id="membresia" class="form-control">
+                                                    <option value="">Seleccione una membresia</option>
+                                                    @foreach ($membresias as $membresia)
+                                                    <option value="{{ $membresia->id }}"
+                                                        {{ $membresia->id == $usuario->membresia_id ? 'selected' : '' }}>
+                                                        {{ $membresia->tipo }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary"
+                                                style="margin-top: 10px">Guardar</button>
+                                        </form>
+                                    </div>
                                 </div>
-                                {{-- documento --}}
-                                <div class="form-group" style="padding-top: 10px">
-                                    <label for="documento">Documento</label>
-                                    <input type="number" name="documento" id="documento" class="form-control"
-                                        value="{{ $usuario->documento }}">
-                                </div>
-                                {{-- email --}}
-                                <div class="form-group" style="padding-top: 10px">
-                                    <label for="correo">Correo electrónico</label>
-                                    <input type="email" name="correo" id="correo" class="form-control"
-                                        value="{{ $usuario->email }}">
-                                </div>
-                                <div class="form-group" style="padding-top: 10px">
-                                    <label for="rol">Rol</label>
-                                    <select name="rol" id="rol" class="form-control">
-                                        <option value="">Seleccione un rol</option>
-                                        @foreach ($roles as $rol)
-                                            <option value="{{ $rol->id }}"
-                                                {{ $usuario->rol_id == $rol->id ? 'selected' : '' }}>
-                                                {{ $rol->rol }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="form-group" style="padding-top: 10px">
-                                    <label for="membresia">Membresia</label>
-                                    <select name="membresia" id="membresia" class="form-control">
-                                        <option value="">Seleccione un rol</option>
-                                        @foreach ($membresia as $membresia)
-                                            <option value="{{ $membresia->id }}"
-                                                {{ $usuario->membresia_id == $membresia->id ? 'selected' : '' }}>
-                                                {{ $membresia->tipo }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <button type="submit" class="btn btn-primary" style="margin-top: 10px">Guardar</button>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <style>
+            /* put dropdown in the botom */
+            .dropdown {
+                position: absolute;
+                left: 25px;
+                top: 92%;
+            }
 
-        @section('scripts')
-            <script>
-                $(document).ready(function() {
-                    $('example').DataTable();
+            /* dropdown item hover */
+            .dropdown-item:hover {
+                background-color: rgba(51, 143, 255, 0.2);
+            }
+        </style>
+        <script>
+            //pathname
+            var pathname = window.location.pathname;
+            //get elements by id
+            var navdashboard = document.getElementById('navdashboard');
+            var navcategorias = document.getElementById('navcategorias');
+            //add class active
+            if (pathname.includes("dashboard")) {
+                navdashboard.classList.add("active");
+            } else if (pathname.includes("categorias")) {
+                navcategorias.classList.add("active");
+            }
+        </script>
+        <script src="{{ asset('bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+        <script>
+            $(document).ready(function() {
+                $('#sidebarCollapse').on('click', function() {
+                    $('#sidebar').toggleClass('active');
                 });
-            </script>
-        @endsection
+            });
+        </script>
 
-        @section('styles')
-            <link rel="stylesheet" href="{{ asset('jquery/dist/jquery.dataTables.min.css') }}">
-            <link rel="stylesheet" href="{{ asset('bootstrap/dist/css/dataTables.bootstrap5.min.css') }}">
-            <link rel="stylesheet" href="{{ asset('jquery/dist/jquery.dataTables.min.js') }}">
-            <link rel="stylesheet" href="{{ asset('bootstrap/dist/js/dataTables.bootstrap5.min.js') }}">
-        @endsection
+        <!-- JQUERY JS -->
+        <script src="{{ asset('jquery/dist/jquery.min.js') }}"></script>
 
-        @section('scripts')
-            <script src="{{ asset('jquery/dist/jquery.dataTables.min.js') }}"></script>
-            <script src="{{ asset('bootstrap/dist/js/dataTables.bootstrap5.min.js') }}"></script>
-        @endsection
-
-
-    </main>
-    <script src="{{ asset('jquery/dist/jquery.js') }}"></script>
-    <script src="{{ asset('bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('js/sidebars.js') }}"></script>
-    <script src="{{ asset('jquery/dist/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('bootstrap/dist/js/dataTables.bootstrap5.min.js') }}"></script>
-    <script src="{{ asset('jquery/dist/dataTableSpanish.js') }}"></script>
-    <style>
-        input[type=number]::-webkit-inner-spin-button,
-        input[type=number]::-webkit-outer-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-
-        input[type=number] {
-            -moz-appearance: textfield;
-        }
-    </style>
+        <!-- BOOTSTRAP JS -->
+        <script src="{{ asset('@popperjs/core/dist/umd/popper.min.js') }}"></script>
+        <script src="{{ asset('bootstrap/dist/js/bootstrap.min.js') }}"></script>
 </body>
 
 </html>

@@ -26,35 +26,48 @@
                             <div class="col-md-12">
                                 <div class="card" style="margin-top: 50px">
                                     <div class="card-header">
-                                        <h3>Editar categoria</h3>
+                                        <h3>Crear usuario</h3>
                                     </div>
                                     <div class="card-body">
-                                        <form action="{{ route('categorias.update', $categoria->id) }}" method="POST">
+                                        <form action="{{ route('usuarios.store') }}" method="POST">
                                             @csrf
-                                            @method('PUT')
+                                            @method('POST')
                                             <div class="form-group">
-                                                <label for="nombre">Nombre de la categoria</label>
+                                                <label for="nombre">Nombre completo del usuario</label>
                                                 <input type="text" name="nombre" id="nombre" class="form-control"
-                                                    value="{{ $categoria->nombrecat }}" required>
+                                                    value="" required>
                                             </div>
                                             <div class="form-group" style="padding-top: 10px;">
-                                                <label for="icono">Icono de la categoria <a href="https://fontawesome.com/search?s=solid%2Cbrands" target="_blank" rel="noopener noreferrer">Referencia</a></label>
-                                                <input type="text" name="icono" id="icono" class="form-control"
-                                                    value="{{ $categoria->icono }}" required>
+                                                <label for="documento">Documento del usuario</label>
+                                                <input type="text" name="documento" id="documento" class="form-control"
+                                                    value="" required>
                                             </div>
                                             <div class="form-group" style="padding-top: 10px;">
-                                                <label for="color">Color de la categoria <a href="https://getbootstrap.com/docs/4.0/utilities/colors/#background-color" target="_blank" rel="noopener noreferrer">Referencia</a></label>
-                                                {{-- actual color select option--}}
-                                                <select name="color" id="color" class="form-control" required>
-                                                    <option value="{{ $categoria->color }}" selected>{{ $categoria->color }}</option>
-                                                    <option value="primary">primary</option>
-                                                    <option value="secondary">secondary</option>
-                                                    <option value="success">success</option>
-                                                    <option value="danger">danger</option>
-                                                    <option value="warning">warning</option>
-                                                    <option value="info">info</option>
-                                                    <option value="light">light</option>
-                                                    <option value="dark">dark</option>
+                                                <label for="email">Email del usuario</label>
+                                                <input type="email" name="email" id="email" class="form-control"
+                                                    value="" required>
+                                            </div>
+                                            <div class="form-group" style="padding-top: 10px;">
+                                                <label for="password">Contraseña del usuario</label>
+                                                <input type="password" name="password" id="password" class="form-control"
+                                                    value="" required>
+                                            </div>
+                                            <div class="form-group" style="padding-top: 10px;">
+                                                <label for="rol">Rol del usuario</label>
+                                                <select name="rol" id="rol" class="form-control" required>
+                                                    <option value="">Seleccione un rol</option>
+                                                    @foreach ($roles as $rol)
+                                                    <option value="{{ $rol->id }}">{{ $rol->rol }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="form-group" style="padding-top: 10px;">
+                                                <label for="membresia">Membresia del usuario</label>
+                                                <select name="membresia" id="membresia" class="form-control" required>
+                                                    <option value="">Seleccione una membresia</option>
+                                                    @foreach ($membresias as $membresia)
+                                                    <option value="{{ $membresia->id }}">{{ $membresia->tipo }}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                             <button type="submit" class="btn btn-primary" style="margin-top: 10px">Guardar</button>
@@ -80,19 +93,6 @@
                 background-color: rgba(51, 143, 255, 0.2);
             }
         </style>
-        <script>
-            //pathname
-            var pathname = window.location.pathname;
-            //get elements by id
-            var navdashboard = document.getElementById('navdashboard');
-            var navcategorias = document.getElementById('navcategorias');
-            //add class active
-            if (pathname.includes("dashboard")) {
-                navdashboard.classList.add("active");
-            } else if (pathname.includes("categorias")) {
-                navcategorias.classList.add("active");
-            }
-        </script>
         <script src="{{ asset('bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
         <script>
             $(document).ready(function() {

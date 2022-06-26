@@ -28,7 +28,9 @@ class UsuariosController extends Controller
      */
     public function create()
     {
-        //
+        $roles = Roles::all();
+        $membresias = Membresia::all();
+        return view('usuarios.create', compact('roles', 'membresias'));
     }
 
     /**
@@ -39,7 +41,17 @@ class UsuariosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $usuario = new Usuarios();
+        $usuario->nombre = $request->nombre;
+        $usuario->documento = $request->documento;
+        $usuario->email = $request->email;
+        $usuario->password = bcrypt($request->password);
+        $usuario->rol_id = $request->rol;
+        $usuario->email_verified_at = now();
+        $usuario->pago = "SIN COMPLETAR";
+        $usuario->membresia_id = $request->membresia;
+        $usuario->save();
+        return redirect('/usuarios');
     }
 
     /**
@@ -63,8 +75,8 @@ class UsuariosController extends Controller
     {
         $usuario = Usuarios::find($id);
         $roles = Roles::all();
-        $membresia = Membresia::all();
-        return view('usuarios.edit', compact('usuario', 'roles', 'membresia'));
+        $membresias = Membresia::all();
+        return view('usuarios.edit', compact('usuario', 'roles', 'membresias'));
     }
 
     /**
@@ -74,9 +86,15 @@ class UsuariosController extends Controller
      * @param  \App\Models\Usuarios  $usuarios
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Usuarios $usuarios)
+    public function update(Request $request, Usuarios $usuarios, $id)
     {
-        //
+        $usuario = Usuarios::find($id);
+        $usuario->nombre = $request->nombre;
+        $usuario->email = $request->email;
+        $usuario->rol_id = $request->rol;
+        $usuario->membresia_id = $request->membresia;
+        $usuario->save();
+        return redirect('/usuarios');
     }
 
     /**
@@ -90,6 +108,6 @@ class UsuariosController extends Controller
         $usuario = Usuarios::find($id);
         $usuario->delete();
         DB::statement('ALTER TABLE usuarios AUTO_INCREMENT = 1');
-        return redirect('/usuarios');
+        return redirect('/usuarios')->with('success', 'Usuario eliminado correctamente');
     }
 }

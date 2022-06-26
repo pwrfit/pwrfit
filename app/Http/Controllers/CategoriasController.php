@@ -38,8 +38,16 @@ class CategoriasController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate(
+            [
+                'nombre' => 'required|string|max:255',
+                'icono' => 'required|string|max:255',
+                'color' => 'required|string|max:255',
+            ]
+        );
+
         $categorias = new Categorias;
-        $categorias->nombrecat = $request->nombrecat;
+        $categorias->nombrecat = $request->nombre;
         $categorias->icono = $request->icono;
         $categorias->color = $request->color;
         $categorias->save();
@@ -72,8 +80,17 @@ class CategoriasController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate(
+            [
+                'nombre' => 'required|string|max:255',
+                'icono' => 'required|string|max:255',
+                'color' => 'required|string|max:255',
+            ]
+        );
         $categoria = Categorias::find($id);
-        $categoria->nombrecat = $request->nombrecat;
+        $categoria->nombrecat = $request->nombre;
+        $categoria->icono = $request->icono;
+        $categoria->color = $request->color;
         $categoria->save();
         return redirect('categorias');
     }
@@ -89,6 +106,6 @@ class CategoriasController extends Controller
         $categoria = Categorias::find($id);
         $categoria->delete();
         DB::statement('ALTER TABLE categorias AUTO_INCREMENT = 1');
-        return redirect('categorias');
+        return redirect('categorias')->with('success', 'Categoria eliminada correctamente');
     }
 }
