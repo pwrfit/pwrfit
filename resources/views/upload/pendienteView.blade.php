@@ -11,9 +11,10 @@
     <link href="https://site-assets.fontawesome.com/releases/v6.1.1/css/all.css" rel="stylesheet">
     <!-- Styles -->
     {{-- <link href="{{ asset('css/sidebars.css') }}" rel="stylesheet"> --}}
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/videos/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/sidebar/style.css') }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <script src="{{ asset('js/playerjs.js') }}"></script>
 </head>
 
 <body class="app sidebar-mini">
@@ -24,11 +25,50 @@
                 <div class="main-content app-content mt-0">
                     <div class="side-app">
                         <div class="main-container container-fluid">
-                            @if (Auth::user()->rol_id == 1)
-                                @include('dashboard.admin.categorias')
-                            @else
-                                @include('dashboard.categorias')
-                            @endif
+                            <section class="gen-section-padding-3 gen-single-video">
+                                <div class="container">
+                                    <div class="row no-gutters">
+                                        <div class="col-lg-12">
+                                            <div style="margin-bottom: 20px; margin-left: 80%;">
+                                                <form action="{{ route('videos.pendientes.update', $upload->id) }}" method="POST" style="display:inline;">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <button type="submit" class="btn btn-success" style="margin-top: 10px;">Aprobar</button>
+                                                </form>
+                                                <form action="{{ route('videos.pendientes.delete', $upload->id) }}"
+                                                    class="eliminar" method="POST" style="display: inline">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger" style="margin-top: 10px;">Rechazar</button>
+                                                </form>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="gen-video-holder">
+                                                        <div id="player" style="height: 550px"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <div class="single-video">
+                                                        <div class="gen-single-video-info">
+                                                            <h2 class="gen-title">{{ $upload->titulo }}</h2>
+                                                            <div class="gen-single-meta-holder">
+                                                                <ul>
+                                                                    <li>{{ $time }}</li>
+                                                                    <li>
+                                                                        <span>Categorias</span>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                            <p>{{ $upload->descripcion }}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
                         </div>
                     </div>
                 </div>
@@ -47,19 +87,6 @@
                 background-color: rgba(51, 143, 255, 0.2);
             }
         </style>
-        <script>
-            //pathname
-            var pathname = window.location.pathname;
-            //get elements by id
-            var navdashboard = document.getElementById('navdashboard');
-            var navcategorias = document.getElementById('navcategorias');
-            //add class active
-            if (pathname.includes("dashboard")) {
-                navdashboard.classList.add("active");
-            } else if (pathname.includes("categorias")) {
-                navcategorias.classList.add("active");
-            }
-        </script>
         <script src="{{ asset('bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
         <script>
             $(document).ready(function() {
@@ -122,12 +149,21 @@
                 })
             })
         </script>
-        <script src="{{ asset('js/sidebar.js')}}"></script>
+        <script src="{{ asset('js/sidebar.js') }}"></script>
         <script>
             $(document).ready(function() {
                 $('#sidebarCollapse').on('click', function() {
                     $('#sidebar').toggleClass('active');
                 });
+            });
+        </script>
+        <script>
+            $video = "{{ asset('videos/videos').'/'.$upload->videosrc }}";
+            $miniatura = "{{ asset('videos/miniaturas').'/'.$upload->miniaturasrc }}";
+            var player = new Playerjs({
+                id: "player",
+                file: $video,
+                poster: $miniatura,
             });
         </script>
 </body>

@@ -74815,3 +74815,8 @@ textarea.form-control {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+li.paginate_button:nth-child(2) > a:nth-child(1):hover, li.paginate_button:nth-child(3) > a:nth-child(1):hover{
+    background-color: #0D6EFD;
+    color: white;
+}

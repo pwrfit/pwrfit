@@ -1,9 +1,8 @@
-<link href="{{ asset('css/style.css') }}" rel="stylesheet">
 <div class="content-wrapper" style="width: 40%; padding-top: 30px;">
     <section class="content">
         <div class="container-fluid">
             <div class="row cat">
-                @foreach ($usuarios as $usuario)
+                @foreach ($categorias as $categoria)
                     <div class="col-lg-4 col-4">
                         <a href="">
                             <div class="small-box bg-{{ $categoria->color }}">

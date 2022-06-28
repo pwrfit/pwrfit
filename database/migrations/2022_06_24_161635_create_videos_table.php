@@ -19,8 +19,10 @@ return new class extends Migration
             $table->string('titulo');
             $table->string('descripcion');
             $table->string('videosrc');
+            $table->string('duracion');
             $table->string('miniaturasrc');
             $table->timestamp('created_at');
+            $table->boolean('aprobado')->default(false);
 
             $table->foreign('subidopor')->references('id')->on('usuarios')->onDelete('cascade');
         });

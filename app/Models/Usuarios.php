@@ -23,4 +23,22 @@ class Usuarios extends Model
     {
         return $this->belongsTo('App\Models\Membresia');
     }
+
+    // one to many relationship with Uploads
+    public function uploads()
+    {
+        return $this->hasMany('App\Models\Uploads', 'id');
+    }
+
+    // one to many relationship with Comentarios
+    public function comentarios()
+    {
+        return $this->hasMany('App\Models\Comentarios', 'id');
+    }
+
+    // one to many relationship with Videos
+    public function videos()
+    {
+        return $this->hasMany('App\Models\Videos', 'id');
+    }
 }

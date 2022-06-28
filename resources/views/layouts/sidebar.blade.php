@@ -32,6 +32,14 @@
                             class="side-menu__icon fa-regular fa-shapes"></i><span class="side-menu__label">Rutinas
                             seguidas</span></a>
                 </li>
+                @if (Auth::user()->rol_id == 2)
+                    <li class="slide">
+                        <a class="side-menu__item has-link" id="navupload" data-bs-toggle="slide" href="{{ route('upload')}}"><i
+                                class="side-menu__icon fa-regular fa-cloud-arrow-up"></i><span
+                                class="side-menu__label">Subir video</span></a>
+                    </li>
+
+                @endif
             @endif
             @if (Auth::user()->rol_id == 1)
                 <li class="slide">
@@ -46,12 +54,12 @@
                 </li>
                 <li class="slide">
                     <a class="side-menu__item has-link" id="navvideospen" data-bs-toggle="slide"
-                        href="#"><i class="side-menu__icon fa-light fa-video-arrow-up-right"></i><span
+                        href="{{ route('videos.pendientes')}}"><i class="side-menu__icon fa-light fa-video-arrow-up-right"></i><span
                             class="side-menu__label">Videos pendientes</span></a>
                 </li>
                 <li class="slide">
                     <a class="side-menu__item has-link" id="navvideos" data-bs-toggle="slide"
-                        href="#"><i class="side-menu__icon fa-light fa-video"></i><span
+                        href="{{ route('videos.subidos')}}"><i class="side-menu__icon fa-light fa-video"></i><span
                             class="side-menu__label">Videos subidos</span></a>
                 </li>
             @endif
@@ -105,6 +113,7 @@
     var navroles = document.getElementById('navroles');
     var navvideos = document.getElementById('navvideos');
     var navvideospen = document.getElementById('navvideospen');
+    var navupload = document.getElementById('navupload');
     //add class active
     if (pathname.includes("dashboard")) {
         navdashboard.classList.add("active");
@@ -114,9 +123,11 @@
         navusuarios.classList.add("active");
     } else if (pathname.includes("roles")) {
         navroles.classList.add("active");
-    } else if (pathname.includes("videos")) {
-        navvideos.classList.add("active");
     } else if (pathname.includes("videospendientes")) {
         navvideospen.classList.add("active");
+    } else if (pathname.includes("upload")) {
+        navupload.classList.add("active");
+    } else if (pathname.includes("videossubidos")) {
+        navvideos.classList.add("active");
     }
 </script>

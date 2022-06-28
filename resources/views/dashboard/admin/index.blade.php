@@ -1,4 +1,3 @@
-<link href="{{ asset('css/style.css') }}" rel="stylesheet">
 <div class="content-wrapper" style="width: 40%; padding-top: 30px;">
     <div class="content-header">
         <div class="container-fluid">
@@ -53,26 +52,26 @@
                 <div class="col-lg-4 col-2">
                     <div class="small-box bg-light">
                         <div class="inner">
-                            <h3>0</h3>
+                            <h3>{{ $pendientes->count() }}</h3>
                             <p>Videos pendientes</p>
                         </div>
                         <div class="icon">
                             <i class="fa-regular fa-video-arrow-up-right" style="font-size: 70px"></i>
                         </div>
-                        <a href="#" class="small-box-footer" style="color: #111;">Administrar<i class="fa-solid fa-circle-arrow-right"
+                        <a href="{{ route('videos.pendientes') }}" class="small-box-footer" style="color: #111;">Administrar<i class="fa-solid fa-circle-arrow-right"
                                 style="padding-left: 5px;"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-2">
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3>0</h3>
+                            <h3>{{$subidos->count()}}</h3>
                             <p>Videos subidos</p>
                         </div>
                         <div class="icon">
                             <i class="fa-regular fa-video" style="font-size: 70px"></i>
                         </div>
-                        <a href="#" class="small-box-footer">Administrar<i class="fa-solid fa-circle-arrow-right"
+                        <a href="{{ route('videos.subidos')}}" class="small-box-footer">Administrar<i class="fa-solid fa-circle-arrow-right"
                                 style="padding-left: 5px;"></i></a>
                     </div>
                 </div>

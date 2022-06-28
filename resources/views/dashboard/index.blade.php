@@ -9,7 +9,7 @@
         </form>
         @if (Auth::user()->rol_id == 2)
             <div class="menu-icons">
-                <a href="#">
+                <a href="{{ route('upload') }}">
                     <img src="{{ asset('img/cloud-arrow-up-solid.svg') }}" style="width: 40px;" alt="Upload Video" />
                 </a>
             </div>
@@ -28,63 +28,27 @@
     </section>
     <div class="videos">
         <section class="video-section">
+            @foreach ($subidos as $video)
             <article class="video-container">
-                <a href="#" class="thumbnail" data-duration="00:00">
-                    <img class="thumbnail-image" src="{{ asset('img/op.jpg') }}" />
+                <a href="{{ route('videos.subidos.view', $video->id) }}" class="thumbnail" data-duration="{{ $video->duracion }}">
+                    <img class="thumbnail-image" src="{{ asset('videos/miniaturas').'/'.$video->miniaturasrc }}" />
                 </a>
                 <div class="video-bottom-section">
                     <a href="#">
-                        <img class="channel-icon" src="{{ asset('img/zoro.jpg') }}" />
+                        <img class="channel-icon" src="{{ asset('avatares').'/'.$video->usuario->avatar }}" />
                     </a>
                     <div class="video-details">
-                        <a href="#" class="video-title">One Piece</a>
-                        <a href="#" class="video-channel-name">Toei Animation</a>
+                        <a href="{{ route('videos.subidos.view', $video->id) }}" class="video-title">{{ $video->titulo  }}</a>
+                        <a href="#" class="video-channel-name">{{ $video->usuario->nombre }}</a>
                         <div class="video-metadata">
-                            <span>10K views</span>
-                            •
-                            <span>hace 10 horas</span>
+                            <span>
+                                <i class="fa-solid fa-calendar-alt"></i> &nbsp;
+                                {{ Str::ucfirst(Carbon\Carbon::parse($video->created_at)->diffForHumans()) }}
+                            </span>
                         </div>
                     </div>
                 </div>
             </article>
-            <article class="video-container">
-                <a href="#" class="thumbnail" data-duration="00:00">
-                    <img class="thumbnail-image" src="{{ asset('img/th.jpg') }}" />
-                </a>
-                <div class="video-bottom-section">
-                    <a href="#">
-                        <img class="channel-icon" src="{{ asset('img/tms-entertainment-logo.jpg') }}" />
-                    </a>
-                    <div class="video-details">
-                        <a href="#" class="video-title">Toaru Hikūshi e no Koiuta</a>
-                        <a href="#" class="video-channel-name">TMS Entertainment</a>
-                        <div class="video-metadata">
-                            <span>20K views</span>
-                            •
-                            <span>hace 1 dia</span>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            <article class="video-container">
-                <a href="#" class="thumbnail" data-duration="00:00">
-                    <img class="thumbnail-image" src="{{ asset('img/bnh.jpg') }}" />
-                </a>
-                <div class="video-bottom-section">
-                    <a href="#">
-                        <img class="channel-icon" src="{{ asset('img/boku.jpg') }}" />
-                    </a>
-                    <div class="video-details">
-                        <a href="#" class="video-title">Boku no Hero</a>
-                        <a href="#" class="video-channel-name">Studio Bones</a>
-                        <div class="video-metadata">
-                            <span>15K views</span>
-                            •
-                            <span>hace 2 dias</span>
-                        </div>
-                    </div>
-                </div>
-            </article>
-
+            @endforeach
     </div>
 </div>

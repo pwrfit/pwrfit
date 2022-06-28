@@ -11,6 +11,7 @@
     <link href="https://site-assets.fontawesome.com/releases/v6.1.1/css/all.css" rel="stylesheet">
     <!-- Styles -->
     {{-- <link href="{{ asset('css/sidebars.css') }}" rel="stylesheet"> --}}
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/sidebar/style.css') }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 </head>

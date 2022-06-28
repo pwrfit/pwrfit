@@ -29,6 +29,7 @@ return new class extends Migration
             $table->date('validohasta')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
+            $table->string('avatar')->default('user.jpg');
 
             $table->foreign('rol_id')->references('id')->on('roles')->onDelete('cascade');
             $table->foreign('membresia_id')->references('id')->on('membresia')->onDelete('cascade');

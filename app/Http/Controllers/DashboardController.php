@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categorias;
 use App\Models\Roles;
+use App\Models\Upload;
 use App\Models\Usuarios;
 use Illuminate\Http\Request;
 
@@ -14,11 +15,8 @@ class DashboardController extends Controller
         $categorias = Categorias::all();
         $roles = Roles::all();
         $usuarios = Usuarios::all();
-        return view('dashboard.dashboard', compact('categorias', 'roles', 'usuarios'));
-    }
-
-    public function usuarios(Request $request)
-    {
-        return view('dashboard.usuarios');
+        $subidos = Upload::where('aprobado', 1)->get()->sortByDesc('created_at');
+        $pendientes = Upload::where('aprobado', 0)->get();
+        return view('dashboard.dashboard', compact('categorias', 'roles', 'usuarios', 'subidos', 'pendientes'));
     }
 }
