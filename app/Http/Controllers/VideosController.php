@@ -98,6 +98,6 @@ class VideosController extends Controller
         // eliminar video
         $video = Videos::find($id);
         $video->delete();
-        return redirect()->route('videos.subidos')->with('success', 'Video eliminado correctamente');
+        return redirect()->route('videos.subidos')->with('deleted', 'Video eliminado correctamente');
     }
 }

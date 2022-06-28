@@ -80,7 +80,7 @@ Route::delete('/videospendientes/{id}', [UploadController::class, 'pendienteDele
 // videos subidos
 Route::get('/videossubidos', [UploadController::class, 'subido'])->middleware(['auth', 'verified', 'admin'])->name('videos.subidos');
 Route::get('/video/{id}', [VideosController::class, 'index'])->middleware(['auth', 'verified'])->name('videos.subidos.view');
-Route::delete('/video/borrar/{id}', [VideosController::class, 'destroy'])->middleware(['auth', 'verified', 'entrenador'])->name('videos.subidos.delete');
+Route::get('/video/borrar/{id}', [VideosController::class, 'destroy'])->middleware(['auth', 'verified'])->name('videos.subidos.delete');
 
 // comentarios
 Route::post('/video/comentar', [ComentariosController::class, 'store'])->middleware(['auth', 'verified'])->name('comentarios.store');

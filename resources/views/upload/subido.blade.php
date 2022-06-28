@@ -27,7 +27,7 @@
                             <div class="page-header">
                                 <h1 class="page-title">Videos subidos</h1>
                             </div>
-                            @if (session('success'))
+                            @if (session('deleted'))
                             <div class="alert alert-danger">
                                 {{ session('deleted') }}
                             </div>
@@ -64,10 +64,9 @@
                                                                                 class="fa-regular fa-eye"></span></a>
                                                                         <form
                                                                             action="{{ route('videos.subidos.delete', $pendiente->id) }}"
-                                                                            class="eliminar" method="POST"
+                                                                            class="eliminar" method="get"
                                                                             style="display: inline">
                                                                             @csrf
-                                                                            @method('DELETE')
                                                                             <button class="btn text-danger btn-sm"><span
                                                                                     class="fa-regular fa-trash-can"></span></button>
                                                                         </form>
