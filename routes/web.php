@@ -80,7 +80,7 @@ Route::delete('/videospendientes/{id}', [UploadController::class, 'pendienteDele
 // videos subidos
 Route::get('/videossubidos', [UploadController::class, 'subido'])->middleware(['auth', 'verified', 'admin'])->name('videos.subidos');
 Route::get('/video/{id}', [VideosController::class, 'index'])->middleware(['auth', 'verified'])->name('videos.subidos.view');
-Route::get('/video/borrar/{id}', [VideosController::class, 'destroy'])->middleware(['auth', 'verified', 'entrenador'])->name('videos.subidos.delete');
+Route::delete('/video/borrar/{id}', [VideosController::class, 'destroy'])->middleware(['auth', 'verified', 'entrenador'])->name('videos.subidos.delete');
 
 // comentarios
 Route::post('/video/comentar', [ComentariosController::class, 'store'])->middleware(['auth', 'verified'])->name('comentarios.store');
@@ -91,5 +91,6 @@ Route::get('/perfil', [PerfilController::class, 'index'])->middleware(['auth', '
 
 // Ajustes
 Route::get('/ajustes', [AjustesController::class, 'index'])->middleware(['auth', 'verified'])->name('ajustes');
+Route::put('/ajustes', [AjustesController::class, 'update'])->middleware(['auth', 'verified'])->name('ajustes.update');
 
 require __DIR__.'/auth.php';

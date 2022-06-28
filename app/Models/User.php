@@ -28,7 +28,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'email',
         'password',
         'boletin',
-        'membresia',
+        'membresia_id',
+        'rol_id',
         'dificultad_seleccionada',
         'pago',
     ];

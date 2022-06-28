@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comentarios;
+use App\Models\Upload;
 use App\Models\Videos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class VideosController extends Controller
 {
@@ -16,9 +18,11 @@ class VideosController extends Controller
      */
     public function index($id)
     {
+        $usuario = Auth::user();
         $comentarios = Comentarios::where('video_id', $id)->get()->sortByDesc('created_at');
-        $videos = Videos::find($id)->get()->sortByDesc('created_at');
-        return view('videos.index', compact('videos', 'comentarios'));
+        $videos = Videos::find($id);
+        $upload = Upload::find($id);
+        return view('videos.index', compact('videos', 'comentarios', 'usuario'));
     }
 
     /**
@@ -86,12 +90,14 @@ class VideosController extends Controller
     {
         // eliminar comentarios
         $comentarios = Comentarios::where('video_id', $id)->get();
-        foreach ($comentarios as $comentario) {
-            $comentario->delete();
+        if ($comentarios->count() > 0) {
+            foreach ($comentarios as $comentario) {
+                $comentario->delete();
+            }
         }
         // eliminar video
         $video = Videos::find($id);
         $video->delete();
-        return redirect()->route('perfil')->with('success', 'Video eliminado correctamente');
+        return redirect()->route('videos.subidos')->with('success', 'Video eliminado correctamente');
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Roles;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class RolesController extends Controller
@@ -16,7 +17,8 @@ class RolesController extends Controller
     public function index()
     {
         $roles = Roles::all();
-        return view('roles', compact('roles'));
+        $usuario = Auth::user();
+        return view('roles', compact('roles', 'usuario'));
     }
 
     /**
@@ -26,7 +28,8 @@ class RolesController extends Controller
      */
     public function create()
     {
-            return view('roles.create');
+        $usuario = Auth::user();
+        return view('roles.create', compact('usuario'));
     }
 
     /**
@@ -63,7 +66,8 @@ class RolesController extends Controller
     public function edit($id)
     {
         $roles = Roles::find($id);
-        return view('roles.edit', compact('roles'));
+        $usuario = Auth::user();
+        return view('roles.edit', compact('roles', 'usuario'));
     }
 
     /**

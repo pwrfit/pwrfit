@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categorias;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class CategoriasController extends Controller
@@ -16,7 +17,8 @@ class CategoriasController extends Controller
     public function index()
     {
         $categorias = Categorias::all();
-        return view('categorias', compact('categorias'));
+        $usuario = Auth::user();
+        return view('categorias', compact('categorias', 'usuario'));
     }
 
     /**

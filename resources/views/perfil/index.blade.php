@@ -25,7 +25,13 @@
                 <div class="main-content app-content mt-0">
                     <div class="side-app">
                         <div class="main-container container-fluid">
-                            @include('perfil.perfil')
+                            @if (Auth::user()->rol_id == 2)
+                                @include('perfil.perfil')
+                            @else
+                                <script>
+                                     window.location = "/ajustes";
+                                </script>
+                            @endif
                         </div>
                     </div>
                 </div>

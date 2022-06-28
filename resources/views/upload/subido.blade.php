@@ -63,7 +63,7 @@
                                                                             class="btn text-primary btn-sm"><span
                                                                                 class="fa-regular fa-eye"></span></a>
                                                                         <form
-                                                                            action="{{ route('videos.pendientes.delete', $pendiente->id) }}"
+                                                                            action="{{ route('videos.subidos.delete', $pendiente->id) }}"
                                                                             class="eliminar" method="POST"
                                                                             style="display: inline">
                                                                             @csrf

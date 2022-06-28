@@ -5,7 +5,7 @@
     <div class="main_content_inner">
         <div class="profile">
             <div class="profile-cover">
-                <img src="{{ asset('img/cover.png') }}" alt="" draggable="false" />
+                <img src="{{ asset('img/cover.jpg') }}" alt="" draggable="false" />
                 <a href="#"> <i class="uil-camera"></i> Editar </a>
             </div>
             <div class="profile-details">

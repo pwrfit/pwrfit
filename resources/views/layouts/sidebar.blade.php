@@ -22,16 +22,16 @@
                         class="side-menu__label">Categorias</span></a>
             </li>
             @if (Auth::user()->rol_id != 1)
-                <li class="slide">
+                {{-- <li class="slide">
                     <a class="side-menu__item has-link" id="navchat" data-bs-toggle="slide" href="#"><i
                             class="side-menu__icon fa-regular fa-message"></i><span
                             class="side-menu__label">Chat</span></a>
-                </li>
-                <li class="slide">
+                </li> --}}
+                {{-- <li class="slide">
                     <a class="side-menu__item has-link" id="navrutseg" data-bs-toggle="slide" href="#"><i
                             class="side-menu__icon fa-regular fa-shapes"></i><span class="side-menu__label">Rutinas
                             seguidas</span></a>
-                </li>
+                </li> --}}
                 @if (Auth::user()->rol_id == 2)
                     <li class="slide">
                         <a class="side-menu__item has-link" id="navupload" data-bs-toggle="slide" href="{{ route('upload')}}"><i
@@ -75,12 +75,14 @@
     <div class="dropdown">
         <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
             id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="{{ asset('img/user.jpg') }}" class="rounded-circle me-2" width="32" height="32">
+            <img src="{{ asset('avatares') . '/' . $usuario->avatar }}" class="rounded-circle me-2" width="32" height="32">
             <strong>{{ Auth::user()->nombre }}</strong>
         </a>
         <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
             <li><a class="dropdown-item" href="{{ route('ajustes')}}">Ajustes</a></li>
-            <li><a class="dropdown-item" href="{{ route('perfil')}}">Perfil</a></li>
+            @if (Auth::user()->rol_id != 3)
+                <li><a class="dropdown-item" href="{{ route('perfil')}}">Perfil</a></li>
+            @endif
             <li>
                 <hr class="dropdown-divider">
             </li>

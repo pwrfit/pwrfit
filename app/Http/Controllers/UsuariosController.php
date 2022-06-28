@@ -6,6 +6,7 @@ use App\Models\Membresia;
 use App\Models\Roles;
 use App\Models\Usuarios;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class UsuariosController extends Controller
@@ -18,7 +19,8 @@ class UsuariosController extends Controller
     public function index()
     {
         $usuarios = Usuarios::all();
-        return view('usuarios', compact('usuarios'));
+        $usuario = Auth::user();
+        return view('usuarios', compact('usuarios', 'usuario'));
     }
 
     /**
@@ -30,7 +32,8 @@ class UsuariosController extends Controller
     {
         $roles = Roles::all();
         $membresias = Membresia::all();
-        return view('usuarios.create', compact('roles', 'membresias'));
+        $usuario = Auth::user();
+        return view('usuarios.create', compact('roles', 'membresias', 'usuario'));
     }
 
     /**

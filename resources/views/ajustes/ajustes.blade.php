@@ -5,13 +5,11 @@
     <div class="main_content_inner">
         <div class="profile">
             <div class="profile-cover">
-                <img src="{{ asset('img/cover.png') }}" alt="" draggable="false" />
-                <a href="#"> <i class="uil-camera"></i> Editar</a>
+                <img src="{{ asset('img/cover.jpg') }}" alt="" draggable="false" />
             </div>
             <div class="profile-details">
                 <div class="profile-image">
                     <img src="{{ asset('avatares') . '/' . $usuario->avatar }}" alt="" draggable="false" />
-                    <a href="#"> </a>
                 </div>
                 <div class="profile-details-info">
                     <h1>{{ $usuario->nombre }}</h1>
@@ -25,7 +23,9 @@
                 <div>
                     <nav class="responsive-tab ml-lg-3">
                         <ul>
-                            <li><a href="{{ route('perfil') }}">Videos</a></li>
+                            @if (Auth::user()->rol_id == 2)
+                                <li><a href="{{ route('perfil') }}">Videos</a></li>
+                            @endif
                             <li class="uk-active"><a class="active" href="#">Ajustes</a></li>
                         </ul>
                     </nav>
@@ -40,7 +40,13 @@
             <div>
                 <div class="uk-card uk-card-default" style="margin-top: 20px;">
                     <div class="uk-card-body">
-                        <form action="" method="POST" enctype="multipart/form-data">
+                        @if (session('success'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('success') }}
+                        </div>
+                        @endif
+                        <form action="{{ route('ajustes.update') }}" method="POST" enctype="multipart/form-data">
+                            @method('PUT')
                             @csrf
                             <div class="uk-margin">
                                 <label class="uk-form-label" for="form-stacked-text">Nombre</label>

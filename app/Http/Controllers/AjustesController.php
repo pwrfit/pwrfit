@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -68,9 +69,24 @@ class AjustesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        // actualizar usuario
+        $id = Auth::user()->id;
+        $usuario = User::find($id);
+        $usuario->nombre = $request->nombre;
+        $usuario->email = $request->email;
+        if ($request->password != null) {
+            $usuario->password = bcrypt($request->password);
+        }
+        if ($request->avatar != null) {
+            $avatar = $request->file('avatar');
+            $nombreArchivo = time() . '.' . $avatar->getClientOriginalExtension();
+            $avatar->move(public_path('avatares'), $nombreArchivo);
+            $usuario->avatar = $nombreArchivo;
+        }
+        $usuario->save();
+        return redirect()->route('ajustes')->with('success', 'Usuario actualizado correctamente');
     }
 
     /**

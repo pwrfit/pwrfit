@@ -7,6 +7,7 @@ use App\Models\Upload;
 use App\Models\Usuarios;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Owenoj\LaravelGetId3\GetId3;
 
@@ -21,7 +22,8 @@ class UploadController extends Controller
     public function index()
     {
         $categorias = Categorias::all();
-        return view('upload.index', compact('categorias'));
+        $usuario = Auth::user();
+        return view('upload.index', compact('categorias', 'usuario'));
     }
 
     /**
@@ -130,19 +132,22 @@ class UploadController extends Controller
     public function pendiente()
     {
         $uploads = Upload::where('aprobado', 0)->get();
-        return view('upload.pendiente', compact('uploads'));
+        $usuario = Auth::user();
+        return view('upload.pendiente', compact('uploads', 'usuario'));
     }
 
     public function pendienteView($id)
     {
         $upload = Upload::find($id);
         $time = ucfirst(Carbon::parse($upload->created_at)->diffForHumans());
-        return view('upload.pendienteView', compact('upload', 'time'));
+        $usuario = Auth::user();
+        return view('upload.pendienteView', compact('upload', 'time', 'usuario'));
     }
 
     public function subido()
     {
         $uploads = Upload::where('aprobado', 1)->get();
-        return view('upload.subido', compact('uploads'));
+        $usuario = Auth::user();
+        return view('upload.subido', compact('uploads', 'usuario'));
     }
 }

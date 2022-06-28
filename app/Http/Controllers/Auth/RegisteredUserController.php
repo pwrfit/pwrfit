@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Usuarios;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -48,8 +49,9 @@ class RegisteredUserController extends Controller
                 'documento' => $request->documento,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
+                'rol_id' => '3',
                 'boletin' => 'SI',
-                'membresia' => '1',
+                'membresia_id' => '1',
                 'pago' => 'SIN COMPLETAR',
             ]);
         }else {
@@ -58,7 +60,8 @@ class RegisteredUserController extends Controller
                 'documento' => $request->documento,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
-                'membresia' => '1',
+                'rol_id' => '3',
+                'membresia_id' => '1',
                 'pago' => 'SIN COMPLETAR',
             ]);
         }
