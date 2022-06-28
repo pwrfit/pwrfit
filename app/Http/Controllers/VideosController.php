@@ -17,7 +17,7 @@ class VideosController extends Controller
     public function index($id)
     {
         $comentarios = Comentarios::where('video_id', $id)->get()->sortByDesc('created_at');
-        $videos = Videos::find($id);
+        $videos = Videos::find($id)->get()->sortByDesc('created_at');
         return view('videos.index', compact('videos', 'comentarios'));
     }
 
@@ -82,8 +82,16 @@ class VideosController extends Controller
      * @param  \App\Models\Videos  $videos
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Videos $videos)
+    public function destroy(Videos $videos, $id)
     {
-        //
+        // eliminar comentarios
+        $comentarios = Comentarios::where('video_id', $id)->get();
+        foreach ($comentarios as $comentario) {
+            $comentario->delete();
+        }
+        // eliminar video
+        $video = Videos::find($id);
+        $video->delete();
+        return redirect()->route('perfil')->with('success', 'Video eliminado correctamente');
     }
 }

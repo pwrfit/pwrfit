@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Videos;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PerfilController extends Controller
 {
@@ -13,7 +15,9 @@ class PerfilController extends Controller
      */
     public function index()
     {
-        //
+        $usuario = Auth::user();
+        $videos = Videos::where('subidopor', $usuario->id)->get();
+        return view('perfil.index', compact('usuario', 'videos'));
     }
 
     /**

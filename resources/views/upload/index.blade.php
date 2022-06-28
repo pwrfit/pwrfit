@@ -30,6 +30,20 @@
                             {{-- upload form --}}
                             <div class="row" style="margin-top: 50px">
                                 <div class="col-md-12">
+                                    @if (session('success'))
+                                        <div class="alert alert-success" role="alert">
+                                            {{ session('success') }}
+                                        </div>
+                                    @endif
+                                    @if ($errors->any())
+                                        <div class="alert alert-danger">
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
                                     <div class="card">
                                         <div class="card-header">
                                             <h3 class="card-title">Subir video</h3>
@@ -37,11 +51,6 @@
                                         <div class="card-body">
                                             <form action="{{ route('upload.pendiente') }}" method="POST"
                                                 enctype="multipart/form-data">
-                                                @if (session('success'))
-                                                    <div class="alert alert-success" role="alert">
-                                                        {{ session('success') }}
-                                                    </div>
-                                                @endif
                                                 @csrf
                                                 <div class="form-group">
                                                     <label for="title">Titulo</label>
