@@ -6,7 +6,7 @@
         <div class="profile">
             <div class="profile-cover">
                 <img src="{{ asset('img/cover.png') }}" alt="" draggable="false" />
-                <a href="#"> <i class="uil-camera"></i> Edit </a>
+                <a href="#"> <i class="uil-camera"></i> Editar </a>
             </div>
             <div class="profile-details">
                 <div class="profile-image">
@@ -15,17 +15,18 @@
                 </div>
                 <div class="profile-details-info">
                     <h1>{{ $usuario->nombre }}</h1>
-                    <p>{{ $usuario->email }} <a href="#">Editar </a></p>
+                    <p>{{ $usuario->email }} <a href="{{ route('ajustes')}}">Editar </a></p>
                 </div>
             </div>
             <div class="nav-profile" uk-sticky="media : @s">
-                <div class="py-md-2 uk-flex-last">
+                {{-- <div class="py-md-2 uk-flex-last">
                     <a href="#" class="button primary mr-2"> <i class="uil-message"></i> Chatear</a>
-                </div>
+                </div> --}}
                 <div>
                     <nav class="responsive-tab ml-lg-3">
                         <ul>
                             <li class="uk-active"><a class="active" href="#">Videos</a></li>
+                            <li><a href="{{ route('ajustes')}}">Ajustes</a></li>
                         </ul>
                     </nav>
                 </div>

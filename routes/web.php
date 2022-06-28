@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AjustesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PaymentController;
@@ -87,5 +88,8 @@ Route::get('/video/comentar/borrar/{id}', [ComentariosController::class, 'destro
 
 // perfil
 Route::get('/perfil', [PerfilController::class, 'index'])->middleware(['auth', 'verified'])->name('perfil');
+
+// Ajustes
+Route::get('/ajustes', [AjustesController::class, 'index'])->middleware(['auth', 'verified'])->name('ajustes');
 
 require __DIR__.'/auth.php';

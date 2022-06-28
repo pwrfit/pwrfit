@@ -79,7 +79,7 @@
             <strong>{{ Auth::user()->nombre }}</strong>
         </a>
         <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-            <li><a class="dropdown-item" href="">Ajustes</a></li>
+            <li><a class="dropdown-item" href="{{ route('ajustes')}}">Ajustes</a></li>
             <li><a class="dropdown-item" href="{{ route('perfil')}}">Perfil</a></li>
             <li>
                 <hr class="dropdown-divider">
